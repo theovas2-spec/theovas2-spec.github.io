@@ -1,0 +1,2 @@
+# Put your PDFs here (CV, project reports, diploma thesis, drawings).
+# Files referenced from js/data.js use paths like: assets/documents/CV.pdf

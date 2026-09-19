@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f9fb"/>
+  <g stroke="#2563eb" stroke-width="2" fill="none" stroke-linejoin="round">
+    <path d="M400 120 520 190 520 330 400 400 280 330 280 190z"/>
+    <path d="M400 260 520 190M400 260 520 330M400 260 280 190M400 260 280 330"/>
+    <path d="M400 120 400 260"/>
+    <path d="M280 190 280 330M520 190 520 330"/>
+    <path d="M400 120 520 190M400 120 280 190M400 400 520 330M400 400 280 330"/>
+  </g>
+  <g stroke="#8a95a1" stroke-width="1.5" fill="none">
+    <path d="M400 400v40M280 330h-40M520 330h40"/>
+  </g>
+  <text x="40" y="60" fill="#6b7280" font-family="monospace" font-size="20" letter-spacing="2">CAD MODEL — replace with your render</text>
+</svg>

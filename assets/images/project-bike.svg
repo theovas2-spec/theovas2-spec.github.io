@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#e3e9f0" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="#f7f9fb"/>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <g stroke="#c2410c" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="230" cy="350" r="90" stroke-width="5"/>
+    <circle cx="590" cy="350" r="90" stroke-width="5"/>
+    <path d="M230 350 300 200 430 200 480 350"/>
+    <path d="M300 200 430 350"/>
+    <path d="M430 200 560 350 590 350"/>
+    <path d="M230 350 480 350 560 350"/>
+    <path d="M300 200 300 130"/>
+    <path d="M280 130h40"/>
+  </g>
+  <text x="40" y="54" fill="#6b7280" font-family="monospace" font-size="22" letter-spacing="2">PROJECT COVER — replace with a render</text>
+</svg>

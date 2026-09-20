@@ -257,20 +257,19 @@ const PROJECTS = [
     year: "2026",
     role: "CFD Methodology & Optimisation Engineer · PROM Racing",
     summary:
-      "Continuous-adjoint optimisation of the brake-cooling duct to increase outlet flow. One adjoint solve gives the gradient for 1008 design variables, while a volumetric B-spline morphs the mesh in place without a CAD or re-meshing loop.",
+      "Continuous-adjoint optimisation of the P26 brake-cooling duct to increase outlet flow, using a volumetric B-spline morphing box and 1008 active design variables.",
     description: [
-      "I used continuous-adjoint shape optimisation to redesign the P26 brake-cooling duct for higher outlet flow to the brake disc. The geometry and verification mesh were prepared in ANSA, while the primal and adjoint optimisation loop was run in OpenFOAM on MareNostrum 5.",
-      "The duct was embedded in a volumetric B-spline morphing box with 1008 active design variables. The inlet and disc interface were kept fixed, while the internal duct shape and mesh morphed directly between optimisation cycles without a CAD or re-meshing loop.",
-      "The retained design increased outlet flow from 25.78 to 27.19 L/s, about +5.4%."
+      "I used continuous-adjoint shape optimisation to improve the P26 brake-cooling duct and increase the airflow delivered to the brake disc. The geometry and 2.45 M-cell verification mesh were prepared in ANSA, and the primal–adjoint optimisation loop was run in OpenFOAM on MareNostrum 5.",
+      "The duct was placed inside a volumetric B-spline morphing box with 1008 active design variables. Fixed control points protected the inlet and disc interface, while the internal duct shape and mesh were allowed to deform directly between optimisation cycles.",
+      "The retained design increased outlet flow from 25.78 to 27.19 L/s, approximately +5.4%."
     ],
-    cover: "assets/images/adjoint-flow-path.png?v=20260921-13",
+    cover: "assets/images/adjoint-cad-comparison.png?v=20260921-14",
     media: [
-      { type: "image", src: "assets/images/adjoint-velocity.png?v=20260921-13" },
-      { type: "image", src: "assets/images/adjoint-shape-morph.gif?v=20260921-13" },
-      { type: "image", src: "assets/images/adjoint-flow-path.png?v=20260921-13" },
-      { type: "image", src: "assets/images/adjoint-displacement.png?v=20260921-13" },
-      { type: "image", src: "assets/images/adjoint-baseline-velocity.png?v=20260921-13" },
-      { type: "image", src: "assets/images/adjoint-optimised-velocity.png?v=20260921-13" }
+      { type: "image", src: "assets/images/adjoint-cad-comparison.png?v=20260921-14" },
+      { type: "image", src: "assets/images/adjoint-morphing-regions.png?v=20260921-14" },
+      { type: "image", src: "assets/images/adjoint-velocity.png?v=20260921-14" },
+      { type: "image", src: "assets/images/adjoint-shape-morph.gif?v=20260921-14" },
+      { type: "image", src: "assets/images/adjoint-optimization-cycles.png?v=20260921-14" }
     ],
     specs: {
       "Objective": "Maximise brake-duct outlet flow",
@@ -280,8 +279,7 @@ const PROJECTS = [
       "Active design variables": "1008",
       "Verification mesh": "2.45 M cells",
       "Compute": "448 cores · MareNostrum 5",
-      "Retained result": "25.78 → 27.19 L/s · +5.45%",
-      "Nine-cycle result": "+10.4% · final 2 cycles rejected on mesh quality"
+      "Retained result": "25.78 → 27.19 L/s · +5.45%"
     },
     tags: ["Adjoint", "Shape Optimisation", "OpenFOAM", "B-splines", "HPC"],
     pdf: null,

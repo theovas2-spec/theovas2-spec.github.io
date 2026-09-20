@@ -220,21 +220,21 @@ const PROJECTS = [
     year: "2026",
     role: "CFD Methodology & Aerodynamics Engineer · PROM Racing",
     summary:
-      "Steady constant-radius cornering model using a rotating reference frame, with wheel kinematics and a tapered domain built around the actual cornering flow.",
+      "Steady MRF cornering CFD that captures yaw-rate effects, curved relative flow and wake steering without a transient moving-mesh solve. The tapered domain cuts the mesh by 44% while preserving wake capture, and the cases feed directly into the aero map for design decision-making.",
     description: [
-      "A normal yawed inlet is not enough to represent a car in a sustained corner. The local relative velocity changes with distance from the turn centre, so the inside and outside of the car — and even the front and rear — do not see exactly the same flow. I used an MRF setup to keep the car fixed and represent that motion as a steady rotating-frame problem.",
-      "The turn radius sets the frame yaw rate through Ω = U/R. The car and wheel boundary velocities are then made consistent with the same rigid-body rotation, including the local wheel rotation. This gives the curved relative-velocity field, radial pressure gradient and wake steering that appear in a constant-radius turn instead of imposing one uniform yaw angle everywhere.",
-      "I also worked on the cornering domain itself. A constant-section semicircular domain wastes cells upstream, where the flow is almost undisturbed, so the sector was tapered from a smaller inlet to a larger outlet that follows the spreading wake. The final sizing kept the vehicle-station blockage at 3.67% and reduced the mesh size by about 42% compared with a uniform domain of similar wake-capture capability.",
-      "The difficult part was keeping the loft smooth where the upstream and downstream growth rates meet. Linear interpolation left a crease at the car station, so I changed the parameterisation to exponential-decay step sizing. The peak second-difference metric dropped from 250 mm to 36 mm, removing the visible transition and the mesh-quality problem around it. The MRF case is still a quasi-steady operating point — it is intended for the aero map, not for corner-entry or transient vehicle-motion modelling."
+      "The car is kept fixed while the reference frame rotates about the turn centre. This gives a steady constant-radius cornering solution where the local relative velocity varies across the car, rather than treating cornering as one uniform yaw angle.",
+      "The car and wheel boundary velocities are tied to the same yaw rate, including local wheel rotation. The result is a consistent cornering flow field with the radial pressure gradient and wake steering expected in a sustained turn.",
+      "To make the workflow cheaper, I redesigned the rotating sector as a tapered domain. It uses 44% fewer cells while keeping the same wake-capture capability. The cornering cases are then included in the aerodynamic map together with ride height, pitch, roll and yaw, so they can be used directly for aero and vehicle-design decisions.",
+      "The loft itself was also smoothed using exponential-decay step sizing, reducing the peak curvature metric from 250 mm to 36 mm and removing the crease at the car station."
     ],
-    cover: "assets/images/mrf-cornering-flow.jpg",
+    cover: "assets/mrf-cornering-flow.jpg?v=20260921-5",
     images: [
-      "assets/images/mrf-approach.jpg",
-      "assets/images/mrf-boundary-conditions.jpg",
-      "assets/images/mrf-cornering-flow.jpg",
-      "assets/images/mrf-tapered-domain.jpg",
-      "assets/images/mrf-domain-optimization.jpg",
-      "assets/images/mrf-loft-smoothing.jpg"
+      "assets/mrf-approach.jpg?v=20260921-5",
+      "assets/mrf-boundary-conditions.jpg?v=20260921-5",
+      "assets/mrf-cornering-flow.jpg?v=20260921-5",
+      "assets/mrf-tapered-domain.jpg?v=20260921-5",
+      "assets/mrf-domain-optimization.jpg?v=20260921-5",
+      "assets/mrf-loft-smoothing.jpg?v=20260921-5"
     ],
     specs: {
       "Cornering model": "Steady MRF · constant-radius operating point",
@@ -243,9 +243,10 @@ const PROJECTS = [
       "Domain extent": "30° upstream · 90° downstream · 25 loft stations",
       "Widths": "4.0 m inlet · 6.0 m car station · 7.5 m outlet",
       "Blockage at car": "3.67%",
-      "Domain saving": "~42% lower mesh size",
+      "Domain saving": "44% fewer cells · same wake capture",
       "Loft smoothing": "Exponential-decay step sizing",
-      "Peak |Δ²W|": "250 mm → 36 mm"
+      "Peak |Δ²W|": "250 mm → 36 mm",
+      "Use": "Integrated into aero mapping for design decisions"
     },
     tags: ["MRF", "Cornering CFD", "OpenFOAM", "ANSA", "Aero Map"],
     pdf: null,

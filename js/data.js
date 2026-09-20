@@ -158,8 +158,8 @@ const PROJECTS = [
       { type: "image", src: "assets/images/des-regions.jpg?v=20260920-4" },
       { type: "image", src: "assets/images/des-force-history.jpg?v=20260920-4" },
       { type: "image", src: "assets/images/des-wss.jpg?v=20260920-4" },
-      { type: "video", src: "assets/videos/DES_U_YSlice.mp4?v=20260920-4", poster: "assets/images/des-lambda2.jpg?v=20260920-4" },
-      { type: "video", src: "assets/videos/DES_U_XSlice.mp4?v=20260920-4", poster: "assets/images/des-lambda2.jpg?v=20260920-4" }
+      { type: "video", src: "assets/videos/DES_U_YSlice.mp4?v=20260920-4" },
+      { type: "video", src: "assets/videos/DES_U_XSlice.mp4?v=20260920-4" }
     ],
     specs: {
       "Geometry": "Full-car P26 Bench configuration",

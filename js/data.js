@@ -191,12 +191,12 @@ const PROJECTS = [
       "The campaign used three steady solves with two adaptation steps between them. Run 1 started at 18.84 M cells; the Q-driven pass produced a 44.58 M-cell re-snapped mesh, followed by a low-|∇p| coarsening pass and a final 44.13 M-cell mesh. Each solve was warm-started from the previous flow field.",
       "The adapted mesh reduced the tail-mean CL error from 5.43% to 2.30% and reduced the CL scatter by 35.4%. The coarsening pass removed 2.18 million cells from low-gradient regions before re-snapping, while the force change stayed inside the run-to-run scatter. That was the mesh-independence check I wanted from the study."
     ],
-    cover: "assets/images/amr-resolved-flow.webp",
+    cover: "assets/images/amr-resolved-flow.jpg?v=20260921-3",
     images: [
-      "assets/images/amr-mesh-evolution.webp",
-      "assets/images/amr-convergence.webp",
-      "assets/images/amr-resolved-flow.webp",
-      "assets/images/amr-half-mesh-comparison.webp"
+      "assets/images/amr-mesh-evolution.jpg?v=20260921-3",
+      "assets/images/amr-convergence.jpg?v=20260921-3",
+      "assets/images/amr-resolved-flow.jpg?v=20260921-3",
+      "assets/images/amr-half-mesh-comparison.jpg?v=20260921-3"
     ],
     specs: {
       "Baseline mesh": "18.84 M cells",

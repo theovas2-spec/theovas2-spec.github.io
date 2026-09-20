@@ -6,7 +6,7 @@
 const PROFILE = {
   name: "Theodoros Vasileiou",
   initials: "TV",
-  photo: "assets/images/profile.png",
+  photo: "assets/images/profile.png?v=20260920-4",
   title: "CFD & Aerodynamics Engineer",
   affiliation: "National Technical University of Athens",
   affiliationShort: "NTUA",
@@ -82,11 +82,11 @@ const PROJECTS = [
       "The production mesh is built in ANSA as a hexa-dominant hybrid mesh. Surface curvature, local size fields and refinement boxes are used around the car and wake, while boundary-layer cells resolve the near-wall gradients.",
       "Before production runs I check mesh quality and near-wall resolution, including the y+ field. The baseline production setup uses an approximately 82 million-cell mesh with low-Re near-wall treatment."
     ],
-    cover: "assets/images/p26-mesh-refinement.jpg",
+    cover: "assets/images/p26-mesh-refinement.jpg?v=20260920-4",
     images: [
-      "assets/images/p26-domain-bc.jpg",
-      "assets/images/p26-mesh-refinement.jpg",
-      "assets/images/p26-yplus-quality.jpg"
+      "assets/images/p26-domain-bc.jpg?v=20260920-4",
+      "assets/images/p26-mesh-refinement.jpg?v=20260920-4",
+      "assets/images/p26-yplus-quality.jpg?v=20260920-4"
     ],
     specs: {
       "Simulation": "Half-car · straight-line aero development",
@@ -114,13 +114,13 @@ const PROJECTS = [
       "Steady RANS correlated very well for the conventional configurations, with R² ≈ 0.960. The correlation collapsed for the Gurney-flap / vortex-generator subset, where strongly separated and unsteady structures were not represented well by the steady approach.",
       "After checking the numerical setup — including mesh strategy, wall treatment, schemes and solver settings — selected cases were moved to DES. The mean |CL| error dropped from 4.27% to 2.60%, the CL RMSE from 0.062 to 0.033, and all 11 DES cases fell within ±5% of the wind-tunnel lift. Flow-visualisation paint was also compared against CFD wall-shear-stress topology to check the physics behind the force agreement."
     ],
-    cover: "assets/images/wt-reference.jpg",
+    cover: "assets/images/wt-reference.jpg?v=20260920-4",
     images: [
-      "assets/images/wt-reference.jpg",
-      "assets/images/wt-rans-correlation.jpg",
-      "assets/images/wt-des-force-history.jpg",
-      "assets/images/wt-des-results.jpg",
-      "assets/images/wt-flow-topology.jpg"
+      "assets/images/wt-reference.jpg?v=20260920-4",
+      "assets/images/wt-rans-correlation.jpg?v=20260920-4",
+      "assets/images/wt-des-force-history.jpg?v=20260920-4",
+      "assets/images/wt-des-results.jpg?v=20260920-4",
+      "assets/images/wt-flow-topology.jpg?v=20260920-4"
     ],
     specs: {
       "Experimental reference": "P20 rear-wing wind-tunnel campaign",
@@ -151,15 +151,15 @@ const PROJECTS = [
       "The methodology was assessed using more than solver convergence alone. I checked the spatial Courant field, the local RANS–DES operating regions, resolved turbulent content and statistical stationarity before averaging the aerodynamic coefficients. Attached near-wall layers remained mainly RANS-like, while the separated outer flow and wake switched to DES-like behaviour.",
       "Selected wake regions reached approximately 95% resolved turbulence content. Relative to the steady RANS reference, the statistically averaged DES solution predicted 1.87% lower drag and 2.67% lower total downforce, with the larger change appearing in the front-to-rear load distribution. The main value of the study was the time-resolved access to vortex development, wheel-wake interaction, separation and full-car wake dynamics."
     ],
-    cover: "assets/images/des-lambda2.jpg",
+    cover: "assets/images/des-lambda2.jpg?v=20260920-4",
     media: [
-      { type: "image", src: "assets/images/des-lambda2.jpg" },
-      { type: "image", src: "assets/images/des-rans-transition.jpg" },
-      { type: "image", src: "assets/images/des-regions.jpg" },
-      { type: "image", src: "assets/images/des-force-history.jpg" },
-      { type: "image", src: "assets/images/des-wss.jpg" },
-      { type: "video", src: "assets/videos/DES_U_YSlice.mp4", poster: "assets/images/des-lambda2.jpg" },
-      { type: "video", src: "assets/videos/DES_U_XSlice.mp4", poster: "assets/images/des-lambda2.jpg" }
+      { type: "image", src: "assets/images/des-lambda2.jpg?v=20260920-4" },
+      { type: "image", src: "assets/images/des-rans-transition.jpg?v=20260920-4" },
+      { type: "image", src: "assets/images/des-regions.jpg?v=20260920-4" },
+      { type: "image", src: "assets/images/des-force-history.jpg?v=20260920-4" },
+      { type: "image", src: "assets/images/des-wss.jpg?v=20260920-4" },
+      { type: "video", src: "assets/videos/DES_U_YSlice.mp4?v=20260920-4", poster: "assets/images/des-lambda2.jpg?v=20260920-4" },
+      { type: "video", src: "assets/videos/DES_U_XSlice.mp4?v=20260920-4", poster: "assets/images/des-lambda2.jpg?v=20260920-4" }
     ],
     specs: {
       "Geometry": "Full-car P26 Bench configuration",

@@ -165,7 +165,7 @@ const PROJECTS = [
       "Geometry": "Full-car P26 Bench configuration",
       "Method": "Spalart–Allmaras DES",
       "Initialisation": "Converged steady RANS field",
-      "Mesh": "~82 M cells",
+      "Mesh": "~150 M cells",
       "Time step": "1 × 10⁻⁴ s",
       "Mean Courant": "≈ 0.0149",
       "Resolved turbulence": "≈ 95% in selected wake regions",

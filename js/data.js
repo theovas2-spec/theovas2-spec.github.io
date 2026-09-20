@@ -136,6 +136,46 @@ const PROJECTS = [
     tags: ["Wind Tunnel", "RANS", "DES", "Validation", "OpenFOAM"],
     pdf: null,
   },
+  {
+    id: "p26-full-car-des",
+    group: "prom-racing",
+    title: "P26 Full-Car Detached-Eddy Simulation",
+    category: "PROM Racing · Unsteady CFD",
+    year: "2026",
+    role: "CFD Methodology & Aerodynamics Engineer · PROM Racing",
+    summary:
+      "Full-car SA-DES methodology developed to resolve wheel wakes, separated structures and asymmetric vehicle-wake dynamics beyond the steady half-car RANS workflow.",
+    description: [
+      "The full-car DES study was developed as the next step after the rear-wing wind-tunnel validation. Rather than using the usual half-car symmetry model, the complete P26 geometry was retained so resolved wake structures could move independently across the vehicle centre plane.",
+      "The case was initialised from a converged steady RANS field and run as a transient Spalart–Allmaras DES simulation. The setup used a fixed Δt = 1e-4 s, low-dissipation momentum discretisation and PIMPLE coupling, with moving ground and rotating wheels.",
+      "The methodology was assessed using more than solver convergence alone. I checked the spatial Courant field, the local RANS–DES operating regions, resolved turbulent content and statistical stationarity before averaging the aerodynamic coefficients. Attached near-wall layers remained mainly RANS-like, while the separated outer flow and wake switched to DES-like behaviour.",
+      "Selected wake regions reached approximately 95% resolved turbulence content. Relative to the steady RANS reference, the statistically averaged DES solution predicted 1.87% lower drag and 2.67% lower total downforce, with the larger change appearing in the front-to-rear load distribution. The main value of the study was the time-resolved access to vortex development, wheel-wake interaction, separation and full-car wake dynamics."
+    ],
+    cover: "assets/images/des-lambda2.jpg",
+    media: [
+      { type: "image", src: "assets/images/des-lambda2.jpg" },
+      { type: "image", src: "assets/images/des-rans-transition.jpg" },
+      { type: "image", src: "assets/images/des-regions.jpg" },
+      { type: "image", src: "assets/images/des-force-history.jpg" },
+      { type: "image", src: "assets/images/des-wss.jpg" },
+      { type: "video", src: "assets/videos/DES_U_YSlice.mp4", poster: "assets/images/des-lambda2.jpg" },
+      { type: "video", src: "assets/videos/DES_U_XSlice.mp4", poster: "assets/images/des-lambda2.jpg" }
+    ],
+    specs: {
+      "Geometry": "Full-car P26 Bench configuration",
+      "Method": "Spalart–Allmaras DES",
+      "Initialisation": "Converged steady RANS field",
+      "Mesh": "~82 M cells",
+      "Time step": "1 × 10⁻⁴ s",
+      "Mean Courant": "≈ 0.0149",
+      "Resolved turbulence": "≈ 95% in selected wake regions",
+      "Mean CD change vs RANS": "−1.87%",
+      "Mean downforce change vs RANS": "−2.67%",
+      "Assessment": "Methodology development · not full-car experimental validation"
+    },
+    tags: ["DES", "Unsteady CFD", "OpenFOAM", "PIMPLE", "ParaView"],
+    pdf: null,
+  },
 ];
 
 /* ------------------------------------------------- EXPERIENCE */

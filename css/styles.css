@@ -618,6 +618,52 @@ button {
   color: var(--accent);
 }
 
+
+.project-group {
+  grid-column: 1 / -1;
+  margin-bottom: 3rem;
+}
+
+.project-group:last-child {
+  margin-bottom: 0;
+}
+
+.project-group-head {
+  max-width: 48rem;
+  margin-bottom: 1.4rem;
+}
+
+.project-group-kicker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.project-group-head h3 {
+  font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+  margin-bottom: 0.35rem;
+}
+
+.project-group-head > p:last-child {
+  color: var(--muted);
+  max-width: 44rem;
+}
+
+.project-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1.5rem;
+}
+
+.project-group-empty {
+  color: var(--dim);
+  font-style: italic;
+  padding: 1rem 0;
+}
+
 /* ------------------------------------------------- timeline */
 .timeline-grid {
   display: grid;

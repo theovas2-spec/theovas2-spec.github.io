@@ -284,7 +284,41 @@ const PROJECTS = [
     tags: ["Adjoint", "Shape Optimisation", "OpenFOAM", "B-splines", "HPC"],
     pdf: null,
   },
-];
+
+  {
+    id: "drivaer-des-field-inversion",
+    group: "research-academic",
+    title: "DES-Informed Field Inversion for Automotive Aerodynamics — DrivAer Fastback",
+    category: "NTUA PCOpt · Turbulence Modelling",
+    year: "2026",
+    role: "CFD Validation & Turbulence Modelling · NTUA PCOpt",
+    summary:
+      "Full-scale DrivAer Fastback validation using RANS/SA and DES/SA, followed by an ongoing DES-informed Eddy Viscosity Adaptation / Field Inversion study in OpenFOAM.",
+    description: [
+      "I am working on a full-scale DrivAer Fastback at 16 m/s with moving ground, rotating wheels and detailed wheel-contact modelling. The first stage focused on validating the CFD setup and understanding where steady RANS/SA differs from the unsteady DES solution.",
+      "The experimental drag reference is CD ≈ 0.243. The baseline RANS/SA case predicted about 0.292, while the improved DES setup reduced the mean value to about 0.280. Component analysis shows the main remaining discrepancy around the tires, with strong coupling between wheel wakes and the underbody flow.",
+      "The next stage is ongoing: the time-averaged DES velocity field will be used as the high-fidelity target for an adjoint-based Eddy Viscosity Adaptation / Field Inversion workflow. The aim is to identify where the SA closure gives the wrong turbulent momentum transport in the wheel wakes, underbody and separated rear wake, rather than only matching the total drag."
+    ],
+    cover: "assets/images/drivaer-full-mesh.png?v=20260921-15",
+    images: [
+      "assets/images/drivaer-full-mesh.png?v=20260921-15",
+      "assets/images/drivaer-wheel-contact-mesh.png?v=20260921-15",
+      "assets/images/drivaer-component-drag.png?v=20260921-15"
+    ],
+    specs: {
+      "Geometry": "Full-scale DrivAer Fastback",
+      "Freestream": "16 m/s",
+      "Ground / wheels": "Moving ground · rotating wheels · contact patch",
+      "Experimental CD": "≈ 0.243",
+      "RANS / SA CD": "≈ 0.292",
+      "DES / SA mean CD": "≈ 0.280",
+      "Diagnosis": "Wheel wakes · underbody · rear wake",
+      "FI target": "Time-averaged DES velocity field",
+      "Status": "RANS/DES validation largely complete · EVA/FI ongoing"
+    },
+    tags: ["DrivAer", "DES", "Field Inversion", "EVA", "OpenFOAM"],
+    pdf: null,
+  },];
 
 /* ------------------------------------------------- EXPERIENCE */
 const EXPERIENCE = [

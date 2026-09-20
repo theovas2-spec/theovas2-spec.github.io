@@ -218,15 +218,41 @@
   }
 
   /* ------------------------------------------------- modal */
-  let currentImages = [];
+  let currentMedia = [];
   let currentIndex = 0;
+
+  function projectMedia(proj) {
+    if (proj.media && proj.media.length) return proj.media;
+    const images = proj.images && proj.images.length ? proj.images : [proj.cover];
+    return images.map((src) => ({ type: "image", src }));
+  }
+
+  function renderMediaItem(item, title) {
+    if (item.type === "video") {
+      return `<video id="gallery-media" class="gallery-media" controls muted loop playsinline preload="metadata"${item.poster ? ` poster="${safeHref(item.poster)}"` : ""}>
+        <source src="${safeHref(item.src)}" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>`;
+    }
+    return `<img id="gallery-media" class="gallery-media" src="${safeHref(item.src)}" alt="${escapeHtml(title)}">`;
+  }
+
+  function renderMediaThumb(item, i) {
+    if (item.type === "video") {
+      const preview = item.poster
+        ? `<img src="${safeHref(item.poster)}" alt="">`
+        : '<span class="thumb-video-label">VIDEO</span>';
+      return `<button type="button" class="thumb thumb-video${i === 0 ? " is-active" : ""}" data-index="${i}" aria-label="Video ${i + 1}">${preview}<span class="thumb-play" aria-hidden="true">▶</span></button>`;
+    }
+    return `<button type="button" class="thumb${i === 0 ? " is-active" : ""}" data-index="${i}" aria-label="Image ${i + 1}"><img src="${safeHref(item.src)}" alt=""></button>`;
+  }
 
   function openProject(id) {
     const proj = (PROJECTS || []).find((p) => p.id === id);
     if (!proj) return;
 
-    const images = proj.images && proj.images.length ? proj.images : [proj.cover];
-    currentImages = images;
+    const media = projectMedia(proj);
+    currentMedia = media;
     currentIndex = 0;
 
     const body = $("#modal-body");
@@ -239,21 +265,16 @@
       </div>
 
       <div class="modal-gallery">
-        <figure class="gallery-frame">
-          <img id="gallery-img" src="${safeHref(images[0])}" alt="${escapeHtml(proj.title)}">
+        <figure class="gallery-frame" id="gallery-frame">
+          ${renderMediaItem(media[0], proj.title)}
         </figure>
         <div class="gallery-controls">
-          <button class="gallery-btn" id="gallery-prev" type="button" aria-label="Previous image">←</button>
-          <span class="gallery-count" id="gallery-count">1 / ${images.length}</span>
-          <button class="gallery-btn" id="gallery-next" type="button" aria-label="Next image">→</button>
+          <button class="gallery-btn" id="gallery-prev" type="button" aria-label="Previous media">←</button>
+          <span class="gallery-count" id="gallery-count">1 / ${media.length}</span>
+          <button class="gallery-btn" id="gallery-next" type="button" aria-label="Next media">→</button>
         </div>
         <div class="gallery-thumbs" id="gallery-thumbs">
-          ${images
-            .map(
-              (src, i) =>
-                `<button type="button" class="thumb${i === 0 ? " is-active" : ""}" data-index="${i}" aria-label="Image ${i + 1}"><img src="${safeHref(src)}" alt=""></button>`
-            )
-            .join("")}
+          ${media.map((item, i) => renderMediaThumb(item, i)).join("")}
         </div>
       </div>
 
@@ -297,18 +318,23 @@
   }
 
   function renderGallery() {
-    const img = $("#gallery-img");
-    if (!img) return;
-    img.src = currentImages[currentIndex];
-    $("#gallery-count").textContent = `${currentIndex + 1} / ${currentImages.length}`;
-    $$("#gallery-thumbs .thumb").forEach((t, i) =>
+    const frame = $("#gallery-frame");
+    const projTitle = $("#modal-title")?.textContent || "Project media";
+    if (!frame || !currentMedia.length) return;
+
+    const activeVideo = frame.querySelector("video");
+    if (activeVideo) activeVideo.pause();
+
+    frame.innerHTML = renderMediaItem(currentMedia[currentIndex], projTitle);
+    $("#gallery-count").textContent = `${currentIndex + 1} / ${currentMedia.length}`;
+    $("#gallery-thumbs .thumb").forEach((t, i) =>
       t.classList.toggle("is-active", i === currentIndex)
     );
   }
 
   function moveGallery(step) {
-    if (!currentImages.length) return;
-    currentIndex = (currentIndex + step + currentImages.length) % currentImages.length;
+    if (!currentMedia.length) return;
+    currentIndex = (currentIndex + step + currentMedia.length) % currentMedia.length;
     renderGallery();
   }
 

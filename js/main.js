@@ -229,7 +229,7 @@
 
   function renderMediaItem(item, title) {
     if (item.type === "video") {
-      return `<video id="gallery-media" class="gallery-media" controls muted loop playsinline preload="metadata"${item.poster ? ` poster="${safeHref(item.poster)}"` : ""}>
+      return `<video id="gallery-media" class="gallery-media" controls muted loop playsinline preload="auto"${item.poster ? ` poster="${safeHref(item.poster)}"` : ""}>
         <source src="${safeHref(item.src)}" type="video/mp4">
         Your browser does not support embedded video.
       </video>`;
@@ -241,7 +241,7 @@
     if (item.type === "video") {
       const preview = item.poster
         ? `<img src="${safeHref(item.poster)}" alt="">`
-        : '<span class="thumb-video-label">VIDEO</span>';
+        : `<video src="${safeHref(item.src)}" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>`;
       return `<button type="button" class="thumb thumb-video${i === 0 ? " is-active" : ""}" data-index="${i}" aria-label="Video ${i + 1}">${preview}<span class="thumb-play" aria-hidden="true">▶</span></button>`;
     }
     return `<button type="button" class="thumb${i === 0 ? " is-active" : ""}" data-index="${i}" aria-label="Image ${i + 1}"><img src="${safeHref(item.src)}" alt=""></button>`;

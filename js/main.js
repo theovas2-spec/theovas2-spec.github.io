@@ -133,30 +133,36 @@
   /* ------------------------------------------------- projects */
   function renderProjects() {
     const grid = $("#projects-grid");
-    const count = $("#project-count");
     const list = PROJECTS || [];
     const groups = typeof PROJECT_GROUPS !== "undefined" ? PROJECT_GROUPS : [];
 
-    count.textContent = `${list.length} selected project${list.length === 1 ? "" : "s"}. Click a card for the full case study.`;
+    const card = (proj) => {
+      const cover = proj.draft
+        ? `<div class="project-cover project-cover-draft">
+            <span class="project-draft-mark">NTUA</span>
+            <span class="project-category">${escapeHtml(proj.category)}</span>
+          </div>`
+        : `<button class="project-cover" type="button" data-open="${escapeHtml(proj.id)}" aria-label="Open ${escapeHtml(proj.title)}">
+            <img src="${safeHref(proj.cover)}" alt="${escapeHtml(proj.title)}" loading="lazy">
+            <span class="project-category">${escapeHtml(proj.category)}</span>
+          </button>`;
 
-    const card = (proj) => `
-      <article class="project-card" data-reveal>
-        <button class="project-cover" type="button" data-open="${escapeHtml(proj.id)}" aria-label="Open ${escapeHtml(proj.title)}">
-          <img src="${safeHref(proj.cover)}" alt="${escapeHtml(proj.title)}" loading="lazy">
-          <span class="project-category">${escapeHtml(proj.category)}</span>
-        </button>
+      return `
+      <article class="project-card${proj.draft ? " project-card-draft" : ""}" data-reveal>
+        ${cover}
         <div class="project-card-body">
           <div class="project-card-top">
-            <span class="project-year">${escapeHtml(proj.year || "")}</span>
+            ${proj.year ? `<span class="project-year">${escapeHtml(proj.year)}</span>` : ""}
             <h3 class="project-title">${escapeHtml(proj.title)}</h3>
           </div>
-          <p class="project-summary">${escapeHtml(proj.summary || "")}</p>
-          <ul class="project-tags">
-            ${(proj.tags || []).map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
-          </ul>
-          <button class="project-link" type="button" data-open="${escapeHtml(proj.id)}">View case study →</button>
+          ${proj.summary ? `<p class="project-summary">${escapeHtml(proj.summary)}</p>` : ""}
+          ${(proj.tags || []).length ? `<ul class="project-tags">
+            ${proj.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
+          </ul>` : ""}
+          ${proj.draft ? "" : `<button class="project-link" type="button" data-open="${escapeHtml(proj.id)}">View case study →</button>`}
         </div>
       </article>`;
+    };
 
     if (!groups.length) {
       grid.innerHTML = list.map(card).join("");
@@ -171,7 +177,7 @@
             <div class="project-group-head">
               <p class="project-group-kicker">Selected work</p>
               <h3>${escapeHtml(group.title)}</h3>
-              <p>${escapeHtml(group.intro || "")}</p>
+              ${group.intro ? `<p>${escapeHtml(group.intro)}</p>` : ""}
             </div>
             <div class="project-group-grid">
               ${groupProjects.length ? groupProjects.map(card).join("") : '<p class="project-group-empty">Projects coming next.</p>'}
@@ -249,7 +255,7 @@
 
   function openProject(id) {
     const proj = (PROJECTS || []).find((p) => p.id === id);
-    if (!proj) return;
+    if (!proj || proj.draft) return;
 
     const media = projectMedia(proj);
     currentMedia = media;

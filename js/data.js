@@ -1,7 +1,6 @@
 /* =========================================================================
-   PORTFOLIO CONTENT: edit everything here, no need to touch index.html.
-   -----------------------------------------------------------------
-   Single source of truth for the site. Filled in from Theodoros Vasileiou's CV.
+   PORTFOLIO CONTENT
+   Main content for the site. Keep project copy short and engineering-focused.
    ========================================================================== */
 
 const PROFILE = {
@@ -14,15 +13,15 @@ const PROFILE = {
   location: "Athens, Greece",
   email: "theovas2@gmail.com",
   phone: "+30 698 291 4890",
-  github: null,                                  // TODO: add your GitHub URL if you have one
-  linkedin: "https://www.linkedin.com/in/your-username", // TODO: paste your LinkedIn profile URL
+  github: "https://github.com/theovas2-spec",
+  linkedin: null,
   resumePdf: "assets/documents/CV.pdf",
   tagline:
-    "5th-year mechanical engineering student focused on CFD methodology, aerodynamics and simulation, from workflow development to experimental validation.",
+    "5th-year Mechanical Engineering student at NTUA working on CFD and aerodynamics, with 2+ years of Formula Student experience.",
   about: [
-    "I am a 5th-year Mechanical Engineering student at the National Technical University of Athens, specialising in Air & Ground Transportation, with 2+ years of Formula Student experience in CFD and aerodynamics.",
-    "My work spans the whole simulation pipeline: geometry preparation, meshing, solver setup, HPC execution and post-processing, with a focus on CFD methodology development, adjoint-based optimisation and experimental validation against wind-tunnel data.",
-    "I'm driven by motorsport and simulation/software engineering, and I enjoy building automated, validated workflows that turn complex flow problems into clear engineering insight.",
+    "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation.",
+    "Most of my recent work has been with PROM Racing, where I work on CFD and aerodynamics: meshing, solver setup, validation, unsteady simulations and optimisation.",
+    "I mainly use OpenFOAM, ANSA, ParaView, Python and MATLAB, and I’m interested in motorsport and automotive aerodynamics."
   ],
   focus: ["CFD", "Aerodynamics", "Simulation", "Motorsport"],
 };
@@ -51,97 +50,53 @@ const SKILLS = [
   },
 ];
 
+/* ------------------------------------------------- PROJECT GROUPS */
+const PROJECT_GROUPS = [
+  {
+    id: "prom-racing",
+    title: "PROM Racing — CFD & Aerodynamics",
+    intro:
+      "Formula Student work covering the CFD workflow from mesh generation and steady development cases to validation, unsteady simulation and optimisation.",
+  },
+  {
+    id: "research-academic",
+    title: "Research & Academic Projects",
+    intro:
+      "Selected NTUA research and engineering projects outside Formula Student.",
+  },
+];
+
 /* ------------------------------------------------- PROJECTS */
-/* TODO (next step): replace the example projects below with your real ones
-   from the CV: Centrifugal Pump Design, Wind-Turbine Planetary Gearbox,
-   Motorcycle Reverse Engineering & FEA, Adjoint-Based Numerical Optimisation. */
 const PROJECTS = [
   {
-    id: "bike-frame",
-    title: "Topology-Optimised Bicycle Frame",
-    category: "Structural Optimisation",
-    year: "2025",
-    role: "Solo project · Coursework",
+    id: "p26-half-car-cfd-meshing",
+    group: "prom-racing",
+    title: "P26 Half-Car CFD & Meshing",
+    category: "PROM Racing · P26",
+    year: "2026",
+    role: "CFD & Aerodynamics Engineer · PROM Racing",
     summary:
-      "Re-designed a road-bike frame with topology optimisation, cutting 18% of mass while keeping peak stress below yield.",
+      "Production half-car CFD workflow for straight-line aero development, with ANSA meshing, local refinement, boundary-layer resolution and mesh-quality control.",
     description: [
-      "Starting from a conventional aluminium frame, I set up a topology-optimisation study in ANSYS with realistic rider loads (static + fatigue-relevant cases). The resulting load paths were re-interpreted as manufacturable tube cross-sections and rebuilt in SolidWorks.",
-      "The final geometry was re-meshed and validated with a full FEA run. Peak von Mises stress stayed under 60% of yield for the worst-case load, and the optimised frame saved 18% of mass versus the baseline.",
+      "For the 2026–27 season I am responsible for the CFD workflow used for PROM Racing’s aerodynamic development. The straight-line baseline uses a half-car computational domain with symmetry, moving ground and rotating wheels.",
+      "The production mesh is built in ANSA as a hexa-dominant hybrid mesh. Surface curvature, local size fields and refinement boxes are used around the car and wake, while boundary-layer cells resolve the near-wall gradients.",
+      "Before production runs I check mesh quality and near-wall resolution, including the y+ field. The baseline production setup uses an approximately 82 million-cell mesh with low-Re near-wall treatment."
     ],
-    cover: "assets/images/project-bike.svg",
+    cover: "assets/images/detail-mesh.svg",
     images: [
-      "assets/images/project-bike.svg",
-      "assets/images/detail-mesh.svg",
-      "assets/images/detail-cad.svg",
-      "assets/images/detail-photo.svg",
+      "assets/images/detail-mesh.svg"
     ],
     specs: {
-      Material: "Aluminium 6061-T6",
-      "Load case": "100 kg rider · 2.5 g",
-      "Peak von Mises": "142 MPa",
-      "Mass reduction": "18%",
-      Software: "SolidWorks · ANSYS",
+      "Simulation": "Half-car · straight-line aero development",
+      "Meshing": "ANSA · hexa-dominant hybrid mesh",
+      "Mesh size": "~82 M cells",
+      "Near-wall": "Low-Re treatment · target y+ ≈ 3–5",
+      "Refinement": "Surface + boundary layer + local volume boxes",
+      "Boundary conditions": "Symmetry · moving ground · rotating wheels",
+      "Quality checks": "y+ field · skewness · aspect ratio · non-orthogonality"
     },
-    tags: ["FEA", "Topology Optimisation", "SolidWorks", "ANSYS"],
-    pdf: "assets/documents/report-bike.pdf",
-  },
-  {
-    id: "desktop-cnc",
-    title: "Desktop CNC Milling Machine",
-    category: "Machine Design",
-    year: "2024",
-    role: "Team lead · 3 members",
-    summary:
-      "Designed and built a low-cost 3-axis CNC mill, from stiffness calculations to cutting its first aluminium part.",
-    description: [
-      "I led the mechanical design of a 3-axis CNC mill with a 300×200 mm work envelope. Frame stiffness was sized analytically (beam models) and verified in ANSYS, targeting < 50 µm deflection under typical cutting loads.",
-      "The machine uses a steel frame, profile-rail linear guides and a high-speed spindle. We manufactured the parts on a shared workshop mill, assembled and trammed the axes, and validated repeatability with a dial indicator.",
-    ],
-    cover: "assets/images/project-cnc.svg",
-    images: [
-      "assets/images/project-cnc.svg",
-      "assets/images/detail-cad.svg",
-      "assets/images/detail-photo.svg",
-      "assets/images/detail-mesh.svg",
-    ],
-    specs: {
-      "Work envelope": "300 × 200 × 100 mm",
-      "Frame": "Steel · bolted",
-      "Spindle": "1.5 kW · 24,000 rpm",
-      "Target stiffness": "20 N/µm",
-      "Repeatability": "±0.02 mm",
-    },
-    tags: ["Machine Design", "CNC", "DFM", "SolidWorks"],
+    tags: ["ANSA", "OpenFOAM", "RANS", "Meshing", "y+"],
     pdf: null,
-  },
-  {
-    id: "turbine-blade",
-    title: "Small Wind Turbine Blade: CFD Study",
-    category: "Fluid Dynamics",
-    year: "2024",
-    role: "Solo project · Coursework",
-    summary:
-      "Aerodynamic analysis of a 1 m horizontal-axis turbine blade, comparing NACA profiles across wind speeds.",
-    description: [
-      "I modelled three candidate NACA airfoils for a small horizontal-axis wind turbine and ran 3D CFD simulations across the operating wind-speed range to compare power coefficient and thrust.",
-      "The best-performing profile was refined with a twist distribution along the span. Results were validated against blade-element momentum theory, and the report includes mesh-independence and turbulence-model sensitivity checks.",
-    ],
-    cover: "assets/images/project-blade.svg",
-    images: [
-      "assets/images/project-blade.svg",
-      "assets/images/detail-mesh.svg",
-      "assets/images/detail-cad.svg",
-      "assets/images/detail-photo.svg",
-    ],
-    specs: {
-      "Rotor diameter": "1.0 m",
-      Profiles: "NACA 4412 · 6412 · 2412",
-      "Design TSR": "6",
-      "Peak Cp": "0.41",
-      Software: "ANSYS Fluent · MATLAB",
-    },
-    tags: ["CFD", "Aerodynamics", "ANSYS Fluent", "BEM"],
-    pdf: "assets/documents/report-blade.pdf",
   },
 ];
 
@@ -159,16 +114,16 @@ const EXPERIENCE = [
       "Developed advanced aerodynamic simulation methods including Adaptive Mesh Refinement, adjoint-based shape optimisation, MRF cornering simulations and CFD aero-mapping across representative vehicle states.",
       "Designed and developed front-wing aerodynamic concepts in SolidWorks, evaluating geometry changes and their effect on overall vehicle aerodynamic performance.",
       "Developed a custom MATLAB workflow to process vehicle-dynamics data and combine lap states with CFD aero-map results for aerodynamic performance analysis.",
-      "Conducted a brake-disc heat-transfer CFD study on the wheel assembly to derive thermal inputs for integration into a transient brake thermal model.",
+      "Conducted a brake-disc heat-transfer CFD study on the wheel assembly to derive thermal inputs for integration into a transient brake thermal model."
     ],
   },
   {
     period: "2026 - Present",
-    role: "Academic Project",
+    role: "CFD Validation, Turbulence Modelling & Optimisation",
     org: "NTUA Parallel CFD & Optimization Unit",
     location: "Athens, Greece",
     bullets: [
-      "CFD Validation, Turbulence Modelling & Optimisation",
+      "Working on a DrivAer Fastback field-inversion study using experimental and RANS/DES data to assess turbulence-model discrepancies."
     ],
   },
 ];
@@ -177,12 +132,12 @@ const EXPERIENCE = [
 const EDUCATION = [
   {
     period: "2022 - Present",
-    degree: "Diploma in Mechanical Engineering: Air & Ground Transportation Specialisation",
+    degree: "Diploma in Mechanical Engineering · Air & Ground Transportation Specialisation",
     school: "National Technical University of Athens (NTUA)",
     location: "Athens, Greece",
-    note: "Entering 5th year",
+    note: "5th year",
     bullets: [
-      "Selected coursework: Computational Fluid Dynamics, Aerodynamics, Optimisation Methods, Computational Methods for Transport Phenomena, Fluid Mechanics II, Vehicle Dynamics.",
+      "Selected coursework: Computational Fluid Dynamics, Aerodynamics, Optimisation Methods, Computational Methods for Transport Phenomena, Fluid Mechanics II, Vehicle Dynamics."
     ],
   },
 ];

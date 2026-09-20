@@ -259,20 +259,18 @@ const PROJECTS = [
     summary:
       "Continuous-adjoint optimisation of the brake-cooling duct to increase outlet flow. One adjoint solve gives the gradient for 1008 design variables, while a volumetric B-spline morphs the mesh in place without a CAD or re-meshing loop.",
     description: [
-      "The objective was simple: increase the air delivered through the brake duct outlet. Instead of changing a small set of CAD dimensions, the duct was placed inside a volumetric B-spline control box and the optimiser was allowed to move the internal shape directly.",
-      "A primal solution and one continuous-adjoint solution provide the sensitivity of the objective to all 1008 active design variables at once. The adjoint field highlighted the intake-leg separation region as the area with the strongest influence on outlet flow, so the shape change concentrated there.",
-      "The mesh deforms together with the geometry, which removes the CAD and re-meshing loop between design cycles. The inlet and brake-disc interface were frozen so the optimiser could not gain flow by simply moving the fixed interfaces.",
-      "On the 2.45 M-cell verification mesh, the retained seven-cycle design increased outlet flow from 25.78 to 27.19 L/s (+5.45%). The full nine-cycle run reached +10.4%, but the last two cycles were rejected because the deformation had started to compromise mesh quality."
+      "I used continuous-adjoint shape optimisation to redesign the P26 brake-cooling duct for higher outlet flow to the brake disc. The geometry and verification mesh were prepared in ANSA, while the primal and adjoint optimisation loop was run in OpenFOAM on MareNostrum 5.",
+      "The duct was embedded in a volumetric B-spline morphing box with 1008 active design variables. The inlet and disc interface were kept fixed, while the internal duct shape and mesh morphed directly between optimisation cycles without a CAD or re-meshing loop.",
+      "The retained design increased outlet flow from 25.78 to 27.19 L/s, about +5.4%."
     ],
-    cover: "assets/images/adjoint-flow-path.png?v=20260921-12",
+    cover: "assets/images/adjoint-flow-path.png?v=20260921-13",
     media: [
-      { type: "image", src: "assets/images/adjoint-control-box.png?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-velocity.png?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-shape-morph.gif?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-flow-path.png?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-displacement.png?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-baseline-velocity.png?v=20260921-12" },
-      { type: "image", src: "assets/images/adjoint-optimised-velocity.png?v=20260921-12" }
+      { type: "image", src: "assets/images/adjoint-velocity.png?v=20260921-13" },
+      { type: "image", src: "assets/images/adjoint-shape-morph.gif?v=20260921-13" },
+      { type: "image", src: "assets/images/adjoint-flow-path.png?v=20260921-13" },
+      { type: "image", src: "assets/images/adjoint-displacement.png?v=20260921-13" },
+      { type: "image", src: "assets/images/adjoint-baseline-velocity.png?v=20260921-13" },
+      { type: "image", src: "assets/images/adjoint-optimised-velocity.png?v=20260921-13" }
     ],
     specs: {
       "Objective": "Maximise brake-duct outlet flow",

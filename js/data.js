@@ -19,9 +19,9 @@ const PROFILE = {
   tagline:
     "5th-year Mechanical Engineering student at NTUA working on CFD and aerodynamics, with 2+ years of Formula Student experience.",
   about: [
-    "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation.",
-    "Most of my recent work has been with PROM Racing, where I work on CFD and aerodynamics: meshing, solver setup, validation, unsteady simulations and optimisation.",
-    "I mainly use OpenFOAM, ANSA, ParaView, Python and MATLAB, and I’m interested in motorsport and automotive aerodynamics."
+    "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation, with a strong interest in motorsport aerodynamics and CFD methodology.",
+    "What I enjoy most is understanding why a simulation behaves the way it does: building the mesh and setup carefully, checking the physics, comparing against experimental or reference data, and improving the method when something does not correlate.",
+    "I’m naturally curious, practical and quite persistent with technical problems. I like working close to the full CFD process rather than treating the solver as a black box, and I’m especially interested in turbulence modelling, unsteady aerodynamics, optimisation and automated workflows."
   ],
   focus: ["CFD", "Aerodynamics", "Simulation", "Motorsport"],
 };
@@ -82,9 +82,11 @@ const PROJECTS = [
       "The production mesh is built in ANSA as a hexa-dominant hybrid mesh. Surface curvature, local size fields and refinement boxes are used around the car and wake, while boundary-layer cells resolve the near-wall gradients.",
       "Before production runs I check mesh quality and near-wall resolution, including the y+ field. The baseline production setup uses an approximately 82 million-cell mesh with low-Re near-wall treatment."
     ],
-    cover: "assets/images/detail-mesh.svg",
+    cover: "assets/images/p26-mesh-refinement.jpg",
     images: [
-      "assets/images/detail-mesh.svg"
+      "assets/images/p26-domain-bc.jpg",
+      "assets/images/p26-mesh-refinement.jpg",
+      "assets/images/p26-yplus-quality.jpg"
     ],
     specs: {
       "Simulation": "Half-car · straight-line aero development",

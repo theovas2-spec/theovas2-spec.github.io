@@ -135,29 +135,49 @@
     const grid = $("#projects-grid");
     const count = $("#project-count");
     const list = PROJECTS || [];
+    const groups = typeof PROJECT_GROUPS !== "undefined" ? PROJECT_GROUPS : [];
+
     count.textContent = `${list.length} selected project${list.length === 1 ? "" : "s"}. Click a card for the full case study.`;
 
-    grid.innerHTML = list
-      .map(
-        (proj) => `
-        <article class="project-card" data-reveal>
-          <button class="project-cover" type="button" data-open="${escapeHtml(proj.id)}" aria-label="Open ${escapeHtml(proj.title)}">
-            <img src="${safeHref(proj.cover)}" alt="${escapeHtml(proj.title)}" loading="lazy">
-            <span class="project-category">${escapeHtml(proj.category)}</span>
-          </button>
-          <div class="project-card-body">
-            <div class="project-card-top">
-              <span class="project-year">${escapeHtml(proj.year || "")}</span>
-              <h3 class="project-title">${escapeHtml(proj.title)}</h3>
-            </div>
-            <p class="project-summary">${escapeHtml(proj.summary || "")}</p>
-            <ul class="project-tags">
-              ${(proj.tags || []).map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
-            </ul>
-            <button class="project-link" type="button" data-open="${escapeHtml(proj.id)}">View case study →</button>
+    const card = (proj) => `
+      <article class="project-card" data-reveal>
+        <button class="project-cover" type="button" data-open="${escapeHtml(proj.id)}" aria-label="Open ${escapeHtml(proj.title)}">
+          <img src="${safeHref(proj.cover)}" alt="${escapeHtml(proj.title)}" loading="lazy">
+          <span class="project-category">${escapeHtml(proj.category)}</span>
+        </button>
+        <div class="project-card-body">
+          <div class="project-card-top">
+            <span class="project-year">${escapeHtml(proj.year || "")}</span>
+            <h3 class="project-title">${escapeHtml(proj.title)}</h3>
           </div>
-        </article>`
-      )
+          <p class="project-summary">${escapeHtml(proj.summary || "")}</p>
+          <ul class="project-tags">
+            ${(proj.tags || []).map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
+          </ul>
+          <button class="project-link" type="button" data-open="${escapeHtml(proj.id)}">View case study →</button>
+        </div>
+      </article>`;
+
+    if (!groups.length) {
+      grid.innerHTML = list.map(card).join("");
+      return;
+    }
+
+    grid.innerHTML = groups
+      .map((group) => {
+        const groupProjects = list.filter((proj) => proj.group === group.id);
+        return `
+          <section class="project-group">
+            <div class="project-group-head">
+              <p class="project-group-kicker">Selected work</p>
+              <h3>${escapeHtml(group.title)}</h3>
+              <p>${escapeHtml(group.intro || "")}</p>
+            </div>
+            <div class="project-group-grid">
+              ${groupProjects.length ? groupProjects.map(card).join("") : '<p class="project-group-empty">Projects coming next.</p>'}
+            </div>
+          </section>`;
+      })
       .join("");
   }
 

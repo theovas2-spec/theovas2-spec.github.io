@@ -176,6 +176,42 @@ const PROJECTS = [
     tags: ["DES", "Unsteady CFD", "OpenFOAM", "PIMPLE", "ParaView"],
     pdf: null,
   },
+  {
+    id: "adaptive-mesh-refinement",
+    group: "prom-racing",
+    title: "Adaptive Mesh Refinement & Mesh Independence",
+    category: "PROM Racing · CFD Methodology",
+    year: "2026",
+    role: "CFD Methodology & Aerodynamics Engineer · PROM Racing",
+    summary:
+      "Mesh-independence study for the P26 half-car case, using Q-driven refinement and pressure-gradient coarsening to spend cells only where they changed the answer.",
+    description: [
+      "The starting point was an 18.8 million-cell snappyHexMesh half-car case that was about 5.4% away from the wind-tunnel lift. Refining the whole domain was not practical, so the aim was to find where the discretisation error was actually coming from.",
+      "My first refinement indicator was vorticity magnitude. It looked sensible, but it also selected attached boundary layers and pushed the result further away from the experiment. I switched the refinement criterion to Q, so the added cells followed vortex cores and wakes instead of being spent on wall layers that were already resolved.",
+      "The campaign used three steady solves with two adaptation steps between them. Run 1 started at 18.84 M cells; the Q-driven pass produced a 44.58 M-cell re-snapped mesh, followed by a low-|∇p| coarsening pass and a final 44.13 M-cell mesh. Each solve was warm-started from the previous flow field.",
+      "The adapted mesh reduced the tail-mean CL error from 5.43% to 2.30% and reduced the CL scatter by 35.4%. The coarsening pass removed 2.18 million cells from low-gradient regions before re-snapping, while the force change stayed inside the run-to-run scatter. That was the mesh-independence check I wanted from the study."
+    ],
+    cover: "assets/images/amr-resolved-flow.webp",
+    images: [
+      "assets/images/amr-mesh-evolution.webp",
+      "assets/images/amr-convergence.webp",
+      "assets/images/amr-resolved-flow.webp",
+      "assets/images/amr-half-mesh-comparison.webp"
+    ],
+    specs: {
+      "Baseline mesh": "18.84 M cells",
+      "Final adapted mesh": "44.13 M cells",
+      "Refinement indicator": "Q-criterion",
+      "Coarsening indicator": "Low |∇p|",
+      "Adaptation": "dynamicRefineFvMesh · octree split / merge",
+      "Campaign": "3 steady solves · 2 adaptation passes",
+      "CL error vs WT": "5.43% → 2.30%",
+      "CL scatter": "−35.4%",
+      "Mesh-independence check": "−2.18 M cells · no significant CL change"
+    },
+    tags: ["AMR", "OpenFOAM", "Q-criterion", "snappyHexMesh", "HPC"],
+    pdf: null,
+  },
 ];
 
 /* ------------------------------------------------- EXPERIENCE */

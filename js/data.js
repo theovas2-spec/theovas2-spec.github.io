@@ -263,7 +263,7 @@ const PROJECTS = [
       "The duct was placed inside a volumetric B-spline morphing box with 1008 active design variables. Fixed control points protected the inlet and disc interface, while the internal duct shape and mesh were allowed to deform directly between optimisation cycles.",
       "The retained design increased outlet flow from 25.78 to 27.19 L/s, approximately +5.4%."
     ],
-    cover: "assets/images/adjoint-cad-comparison.png?v=20260921-14",
+    cover: "assets/images/adjoint-shape-morph.gif?v=20260921-15",
     media: [
       { type: "image", src: "assets/images/adjoint-cad-comparison.png?v=20260921-14" },
       { type: "image", src: "assets/images/adjoint-morphing-regions.png?v=20260921-14" },

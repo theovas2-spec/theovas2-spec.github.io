@@ -299,11 +299,12 @@ const PROJECTS = [
       "The experimental drag reference is CD ≈ 0.243. The baseline RANS/SA case predicted about 0.292, while the improved DES setup reduced the mean value to about 0.280. Component analysis shows the main remaining discrepancy around the tires, with strong coupling between wheel wakes and the underbody flow.",
       "The next stage is ongoing: the time-averaged DES velocity field will be used as the high-fidelity target for an adjoint-based Eddy Viscosity Adaptation / Field Inversion workflow. The aim is to identify where the SA closure gives the wrong turbulent momentum transport in the wheel wakes, underbody and separated rear wake, rather than only matching the total drag."
     ],
-    cover: "assets/images/drivaer-full-mesh.png?v=20260921-16",
+    cover: "assets/images/drivaerimage.jpg?v=20260921-17",
     images: [
-      "assets/images/drivaer-full-mesh.png?v=20260921-16",
-      "assets/images/drivaer-wheel-contact-mesh.png?v=20260921-16",
-      "assets/images/drivaer-component-drag.png?v=20260921-16"
+      "assets/images/drivaerimage.jpg?v=20260921-17",
+      "assets/images/drivaer-full-mesh.png?v=20260921-17",
+      "assets/images/drivaer-wheel-contact-mesh.png?v=20260921-17",
+      "assets/images/drivaer-component-drag.png?v=20260921-17"
     ],
     specs: {
       "Geometry": "Full-scale DrivAer Fastback",

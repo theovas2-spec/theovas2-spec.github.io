@@ -73,7 +73,7 @@ const PROJECTS = [
     group: "prom-racing",
     title: "P26 Half-Car CFD & Meshing",
     category: "PROM Racing · P26",
-    year: "2026",
+    year: "2025",
     role: "CFD & Aerodynamics Engineer · PROM Racing",
     summary:
       "Production half-car CFD workflow for straight-line aero development, with ANSA meshing, local refinement, boundary-layer resolution and mesh-quality control.",
@@ -105,7 +105,7 @@ const PROJECTS = [
     group: "prom-racing",
     title: "Wind-Tunnel CFD Validation — RANS to DES",
     category: "PROM Racing · Validation",
-    year: "2026",
+    year: "2025",
     role: "CFD Validation & Methodology · PROM Racing",
     summary:
       "Rear-wing wind-tunnel correlation study used to identify where steady RANS worked, where it failed, and when an unsteady DES approach was needed.",
@@ -217,7 +217,7 @@ const PROJECTS = [
     group: "prom-racing",
     title: "MRF Cornering Simulation & Tapered Domain",
     category: "PROM Racing · Cornering CFD",
-    year: "2026",
+    year: "2025",
     role: "CFD Methodology & Aerodynamics Engineer · PROM Racing",
     summary:
       "Steady MRF cornering CFD that captures yaw-rate effects, curved relative flow and wake steering without a transient moving-mesh solve. The tapered domain cuts the mesh by 44% while preserving wake capture, and the cases feed directly into the aero map for design decision-making.",

@@ -100,6 +100,42 @@ const PROJECTS = [
     tags: ["ANSA", "OpenFOAM", "RANS", "Meshing", "y+"],
     pdf: null,
   },
+  {
+    id: "wind-tunnel-cfd-validation",
+    group: "prom-racing",
+    title: "Wind-Tunnel CFD Validation — RANS to DES",
+    category: "PROM Racing · Validation",
+    year: "2026",
+    role: "CFD Validation & Methodology · PROM Racing",
+    summary:
+      "Rear-wing wind-tunnel correlation study used to identify where steady RANS worked, where it failed, and when an unsteady DES approach was needed.",
+    description: [
+      "We used a P20 rear-wing wind-tunnel campaign as the experimental reference, including angle-of-attack changes, Gurney flaps and vortex generators. I worked on reproducing the test matrix in CFD and comparing both integrated loads and the underlying surface-flow behaviour.",
+      "Steady RANS correlated very well for the conventional configurations, with R² ≈ 0.960. The correlation collapsed for the Gurney-flap / vortex-generator subset, where strongly separated and unsteady structures were not represented well by the steady approach.",
+      "After checking the numerical setup — including mesh strategy, wall treatment, schemes and solver settings — selected cases were moved to DES. The mean |CL| error dropped from 4.27% to 2.60%, the CL RMSE from 0.062 to 0.033, and all 11 DES cases fell within ±5% of the wind-tunnel lift. Flow-visualisation paint was also compared against CFD wall-shear-stress topology to check the physics behind the force agreement."
+    ],
+    cover: "assets/images/wt-reference.jpg",
+    images: [
+      "assets/images/wt-reference.jpg",
+      "assets/images/wt-rans-correlation.jpg",
+      "assets/images/wt-des-force-history.jpg",
+      "assets/images/wt-des-results.jpg",
+      "assets/images/wt-flow-topology.jpg"
+    ],
+    specs: {
+      "Experimental reference": "P20 rear-wing wind-tunnel campaign",
+      "Test variations": "AoA · Gurney flaps · vortex generators",
+      "RANS baseline": "R² ≈ 0.960 for conventional configurations",
+      "RANS GF/VG subset": "R² ≈ 0.013",
+      "DES campaign": "11 selected GF / VG configurations",
+      "Mean |CL| error": "4.27% → 2.60%",
+      "CL RMSE": "0.062 → 0.033",
+      "Cases within ±5%": "RANS 7/11 → DES 11/11",
+      "Validation basis": "Forces + flow topology / wall shear stress"
+    },
+    tags: ["Wind Tunnel", "RANS", "DES", "Validation", "OpenFOAM"],
+    pdf: null,
+  },
 ];
 
 /* ------------------------------------------------- EXPERIENCE */

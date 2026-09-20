@@ -227,7 +227,7 @@ const PROJECTS = [
       "To make the workflow cheaper, I redesigned the rotating sector as a tapered domain. It uses 44% fewer cells while keeping the same wake-capture capability. The cornering cases are then included in the aerodynamic map together with ride height, pitch, roll and yaw, so they can be used directly for aero and vehicle-design decisions.",
       "The loft itself was also smoothed using exponential-decay step sizing, reducing the peak curvature metric from 250 mm to 36 mm and removing the crease at the car station."
     ],
-   cover: "assets/images/ChatGPT Image Sep 21, 2026, 01_15_22 AM-3.png?v=20260921-10",
+   cover: "assets/images/ChatGPT Image Sep 21, 2026, 01_15_32 AM-3.png?v=20260921-10",
    images: [
      "assets/images/ChatGPT Image Sep 21, 2026, 01_15_22 AM-1.png?v=20260921-10",
      "assets/images/ChatGPT Image Sep 21, 2026, 01_15_29 AM-2.png?v=20260921-10",

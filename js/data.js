@@ -14,7 +14,7 @@ const PROFILE = {
   email: "theovas2@gmail.com",
   phone: "+30 698 291 4890",
   github: "https://github.com/theovas2-spec",
-  linkedin: null,
+  linkedin: "https://www.linkedin.com/in/theodoros-vasileiou-70a316299/",
   resumePdf: "assets/documents/CV.pdf",
   tagline:
     "5th-year Mechanical Engineering student at NTUA working on CFD methodology and aerodynamics.",

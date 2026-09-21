@@ -438,18 +438,37 @@ const PROJECTS = [
   {
     id: "academic-adjoint-numerical-optimisation",
     group: "selected-academic",
-    title: "Adjoint-Based Numerical Optimisation",
-    category: "NTUA · Academic Project",
-    year: "",
-    role: "Selected Academic Project · NTUA",
-    summary: "",
-    description: [],
-    cover: null,
-    images: [],
-    specs: {},
-    tags: [],
+    title: "Adjoint-Based Numerical Optimisation — MATLAB",
+    category: "NTUA · Optimisation Methods",
+    year: "2025",
+    role: "Numerical Optimisation Project · NTUA",
+    summary:
+      "MATLAB implementation of a gradient-based optimisation problem for a boundary-layer flow, comparing finite-difference, direct and adjoint sensitivities before using continuous-adjoint gradients for drag minimisation.",
+    description: [
+      "I built the primal boundary-layer solver in MATLAB and first checked the numerical solution through a grid-independence study. The model uses three design variables to control a distributed wall-injection profile while keeping the total injected flow rate fixed.",
+      "I then implemented four sensitivity approaches — finite differences, direct differentiation, discrete adjoint and continuous adjoint — and compared both their gradients and computational cost. For three design variables, the equivalent cost was 7 primal evaluations for FD, 4 for DD, and only 2 for both adjoint methods.",
+      "Finally, I used the continuous-adjoint sensitivities inside a steepest-descent optimiser with backtracking. The objective was wall-friction drag, and the optimisation produced a smooth monotonic reduction of the objective while the design variables evolved without numerical instability."
+    ],
+    cover: "assets/images/adjoint-numerical-optimization-history.jpg?v=20260921-24",
+    images: [
+      "assets/images/adjoint-numerical-optimization-history.jpg?v=20260921-24",
+      "assets/images/adjoint-numerical-adjoint-field.jpg?v=20260921-24",
+      "assets/images/adjoint-numerical-design-variables.jpg?v=20260921-24",
+      "assets/images/adjoint-numerical-method-comparison.jpg?v=20260921-24"
+    ],
+    specs: {
+      "Implementation": "MATLAB",
+      "Problem": "Boundary-layer flow with distributed wall injection",
+      "Objective": "Minimise wall-friction drag F",
+      "Design variables": "a · b · c",
+      "Constraint": "Fixed injected flow · Q = −0.05U",
+      "Grid": "N = 10,000",
+      "Sensitivity methods": "FD · DD · Discrete Adjoint · Continuous Adjoint",
+      "Cost for 3 DVs": "FD 7 · DD 4 · DA 2 · CA 2 primal-equivalent units",
+      "Optimiser": "Steepest descent · backtracking line search"
+    },
+    tags: ["MATLAB", "Adjoint", "Numerical Optimisation", "Sensitivity Analysis", "Steepest Descent"],
     pdf: null,
-    draft: true,
   },
 ];
 

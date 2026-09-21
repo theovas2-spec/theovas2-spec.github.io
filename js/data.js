@@ -370,13 +370,14 @@ const PROJECTS = [
       "For the structural study, I worked with an ANSA hybrid shell-solid model of about 1.88 million elements and checked mesh sensitivity before solving four representative load cases in ANSYS: static, acceleration, braking and a 3g vertical impact. The central rocker was then topology-optimised with casting constraints, reducing its mass by 30% while keeping a fatigue safety factor of 5.43.",
       "In parallel, we built MATLAB models for the powertrain and vehicle performance. A digitised Yamaha CP3 dyno curve was used to scan final-drive combinations, followed by an acceleration model including weight transfer, traction and wheelie limits. The same model was then used for parametric maps of CdA, road grade and grip conditions."
     ],
-    cover: "assets/images/motorcycle-frame-cover.png?v=20260921-20",
+    cover: "assets/images/motorcycle-frame-cover.jpg?v=20260921-21",
     images: [
-      "assets/images/motorcycle-frame-cover.png?v=20260921-20",
-      "assets/images/motorcycle-reverse-engineering.png?v=20260921-20",
-      "assets/images/motorcycle-ansa-hybrid-mesh.png?v=20260921-20",
-      "assets/images/motorcycle-topology-optimization.png?v=20260921-20",
-      "assets/images/motorcycle-parametric-mapping.png?v=20260921-20"
+      "assets/images/motorcycle-frame-cover.jpg?v=20260921-21",
+      "assets/images/motorcycle-reverse-engineering.jpg?v=20260921-21",
+      "assets/images/motorcycle-ansa-hybrid-mesh.jpg?v=20260921-21",
+      "assets/images/motorcycle-topology-optimization.jpg?v=20260921-21",
+      "assets/images/motorcycle-matlab-performance.jpg?v=20260921-21",
+      "assets/images/motorcycle-parametric-mapping.png?v=20260921-21"
     ],
     specs: {
       "Reference vehicle": "Triumph Tiger 955i",

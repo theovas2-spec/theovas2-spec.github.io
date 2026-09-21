@@ -327,18 +327,39 @@ const PROJECTS = [
   {
     id: "academic-pump-design",
     group: "selected-academic",
-    title: "Pump Design",
-    category: "NTUA · Academic Project",
-    year: "",
-    role: "Selected Academic Project · NTUA",
-    summary: "",
-    description: [],
-    cover: null,
-    images: [],
-    specs: {},
-    tags: [],
+    title: "Centrifugal Pump Design & CFD Analysis",
+    category: "NTUA · Hydrodynamic Machines",
+    year: "2025",
+    role: "Hydrodynamic Design Project · NTUA",
+    summary:
+      "Hydrodynamic design of a radial centrifugal pump, from operating-point sizing and impeller geometry to SolidWorks CAD and CFD verification in ANSYS Fluent.",
+    description: [
+      "We designed a radial centrifugal pump from the target operating point, calculating the main dimensions, impeller diameter and blade geometry before building the impeller, inlet and volute casing in SolidWorks.",
+      "For the CFD part, I prepared the internal fluid volume and ran the impeller flow simulation in ANSYS Fluent. The setup included the rotating water domain, inlet and outlet boundary conditions, mesh generation and convergence checks, followed by pressure and relative-velocity analysis.",
+      "During the simulation work we corrected two setup issues that were affecting the solution: the CAD origin was moved to the true rotation centre, and the shaft-hole geometry was modified after it produced a non-physical local pressure peak. The corrected setup recovered the expected pressure rise through the impeller and a more realistic velocity field."
+    ],
+    cover: "assets/images/centrifugal-pump-cfd-pressure.jpg?v=20260921-23",
+    images: [
+      "assets/images/centrifugal-pump-cfd-pressure.jpg?v=20260921-23",
+      "assets/images/centrifugal-pump-cfd-velocity.jpg?v=20260921-23",
+      "assets/images/centrifugal-pump-cfd-mesh.jpg?v=20260921-23",
+      "assets/images/centrifugal-pump-cad-render.jpg?v=20260921-23",
+      "assets/images/centrifugal-pump-impeller-drawing.jpg?v=20260921-23"
+    ],
+    specs: {
+      "Pump type": "Radial centrifugal pump",
+      "Design flow rate": "77.45 m³/h",
+      "Design head": "23.8 m",
+      "Rotational speed": "2900 rpm",
+      "Impeller diameter": "136.9 mm",
+      "Blades": "7",
+      "CAD": "SolidWorks · impeller + volute casing",
+      "CFD": "ANSYS Fluent · rotating water domain",
+      "Inlet velocity": "3.837 m/s",
+      "Outlet pressure difference": "233 kPa"
+    },
+    tags: ["SolidWorks", "ANSYS Fluent", "CFD", "Pump Design", "Hydrodynamics"],
     pdf: null,
-    draft: true,
   },
   {
     id: "academic-planetary-gearbox",

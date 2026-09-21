@@ -329,7 +329,7 @@ const PROJECTS = [
     group: "selected-academic",
     title: "Centrifugal Pump Design & CFD Analysis",
     category: "NTUA · Hydrodynamic Machines",
-    year: "2025",
+    year: "2024",
     role: "Hydrodynamic Design Project · NTUA",
     summary:
       "Hydrodynamic design of a radial centrifugal pump, from operating-point sizing and impeller geometry to SolidWorks CAD and CFD verification in ANSYS Fluent.",
@@ -338,7 +338,7 @@ const PROJECTS = [
       "For the CFD part, I prepared the internal fluid volume and ran the impeller flow simulation in ANSYS Fluent. The setup included the rotating water domain, inlet and outlet boundary conditions, mesh generation and convergence checks, followed by pressure and relative-velocity analysis.",
       "During the simulation work we corrected two setup issues that were affecting the solution: the CAD origin was moved to the true rotation centre, and the shaft-hole geometry was modified after it produced a non-physical local pressure peak. The corrected setup recovered the expected pressure rise through the impeller and a more realistic velocity field."
     ],
-    cover: "assets/images/centrifugal-pump-cfd-pressure.jpg?v=20260921-23",
+    cover: "assets/images/centrifugal-pump-cad-render.jpg?v=20260921-23",
     images: [
       "assets/images/centrifugal-pump-cfd-pressure.jpg?v=20260921-23",
       "assets/images/centrifugal-pump-cfd-velocity.jpg?v=20260921-23",
@@ -366,7 +366,7 @@ const PROJECTS = [
     group: "selected-academic",
     title: "500 kW Wind Turbine Planetary Gearbox — CAD & FEA",
     category: "NTUA · Machine Design",
-    year: "2025",
+    year: "2024",
     role: "Machine Design Project · NTUA",
     summary:
       "Mechanical design of a three-stage planetary gearbox for a 500 kW wind turbine, with my work focused on the SolidWorks assembly and structural verification of critical components.",
@@ -402,7 +402,7 @@ const PROJECTS = [
     group: "selected-academic",
     title: "Motorcycle Reverse Engineering, FEA & Optimisation",
     category: "NTUA · Vehicle Engineering",
-    year: "2026",
+    year: "2025",
     role: "Vehicle Engineering Project · NTUA",
     summary:
       "Full motorcycle engineering study starting from a physical Triumph Tiger 955i, then moving through CAD reconstruction, FEA, topology optimisation and MATLAB powertrain and performance modelling.",

@@ -440,7 +440,7 @@ const PROJECTS = [
     group: "selected-academic",
     title: "Adjoint-Based Numerical Optimisation — MATLAB",
     category: "NTUA · Optimisation Methods",
-    year: "2025",
+    year: "2026",
     role: "Numerical Optimisation Project · NTUA",
     summary:
       "MATLAB implementation of a gradient-based optimisation problem for a boundary-layer flow, comparing finite-difference, direct and adjoint sensitivities before using continuous-adjoint gradients for drag minimisation.",
@@ -449,7 +449,7 @@ const PROJECTS = [
       "I then implemented four sensitivity approaches — finite differences, direct differentiation, discrete adjoint and continuous adjoint — and compared both their gradients and computational cost. For three design variables, the equivalent cost was 7 primal evaluations for FD, 4 for DD, and only 2 for both adjoint methods.",
       "Finally, I used the continuous-adjoint sensitivities inside a steepest-descent optimiser with backtracking. The objective was wall-friction drag, and the optimisation produced a smooth monotonic reduction of the objective while the design variables evolved without numerical instability."
     ],
-    cover: "assets/images/adjoint-numerical-optimization-history.jpg?v=20260921-24",
+    cover: "assets/images/grad-based-opt?v=20260921-24",
     images: [
       "assets/images/adjoint-numerical-optimization-history.jpg?v=20260921-24",
       "assets/images/adjoint-numerical-adjoint-field.jpg?v=20260921-24",

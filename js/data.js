@@ -343,18 +343,38 @@ const PROJECTS = [
   {
     id: "academic-planetary-gearbox",
     group: "selected-academic",
-    title: "Wind Turbine Planetary Gearbox",
-    category: "NTUA · Academic Project",
-    year: "",
-    role: "Selected Academic Project · NTUA",
-    summary: "",
-    description: [],
-    cover: null,
-    images: [],
-    specs: {},
-    tags: [],
+    title: "500 kW Wind Turbine Planetary Gearbox — CAD & FEA",
+    category: "NTUA · Machine Design",
+    year: "2025",
+    role: "Machine Design Project · NTUA",
+    summary:
+      "Mechanical design of a three-stage planetary gearbox for a 500 kW wind turbine, with my work focused on the SolidWorks assembly and structural verification of critical components.",
+    description: [
+      "The project was to design the drivetrain for a 500 kW wind turbine, increasing rotor speed from 40 rpm to 3000 rpm. The final concept used three coaxial planetary stages with stage ratios of 3:1, 5:1 and 5:1, giving the required overall 75:1 speed increase.",
+      "My part focused mainly on the CAD and structural side. I built the gearbox and its main components in SolidWorks from the calculated gear, shaft, carrier, bearing and housing dimensions, then prepared the full assembly and manufacturing geometry.",
+      "I also ran SolidWorks Simulation checks on the critical shafts and planetary carriers. The analytical gear and bearing loads were transferred into the FE models and the components were checked using von Mises stress, giving a numerical cross-check of the hand calculations before finalising the design."
+    ],
+    cover: "assets/images/wind-turbine-gearbox-cad.jpg?v=20260921-22",
+    images: [
+      "assets/images/wind-turbine-gearbox-cad.jpg?v=20260921-22",
+      "assets/images/assembly.png?v=20260921-22",
+      "assets/images/wind-turbine-gearbox-fea-stage1.jpg?v=20260921-22",
+      "assets/images/wind-turbine-gearbox-fea-stage2.jpg?v=20260921-22",
+      "assets/images/wind-turbine-gearbox-fea-stage3.jpg?v=20260921-22"
+    ],
+    specs: {
+      "Rated power": "500 kW",
+      "Architecture": "3-stage coaxial planetary gearbox",
+      "Rotor / generator speed": "40 → 3000 rpm",
+      "Overall speed increase": "75:1",
+      "Stage ratios": "3:1 · 5:1 · 5:1",
+      "CAD": "SolidWorks · full gearbox assembly",
+      "Structural verification": "SolidWorks Simulation · von Mises stress",
+      "Design checks": "Gears · shafts · carriers · bearings · housing",
+      "Project constraints": "Efficiency ≥ 87% · mass < 4.5 t · life ≥ 7 years"
+    },
+    tags: ["SolidWorks", "Machine Design", "Planetary Gearbox", "FEA", "Wind Turbine"],
     pdf: null,
-    draft: true,
   },
   {
     id: "academic-motorcycle-reverse-engineering",

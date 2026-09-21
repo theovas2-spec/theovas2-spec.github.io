@@ -360,17 +360,38 @@ const PROJECTS = [
     id: "academic-motorcycle-reverse-engineering",
     group: "selected-academic",
     title: "Motorcycle Reverse Engineering, FEA & Optimisation",
-    category: "NTUA · Academic Project",
-    year: "",
-    role: "Selected Academic Project · NTUA",
-    summary: "",
-    description: [],
-    cover: null,
-    images: [],
-    specs: {},
-    tags: [],
+    category: "NTUA · Vehicle Engineering",
+    year: "2026",
+    role: "Vehicle Engineering Project · NTUA",
+    summary:
+      "Full motorcycle engineering study starting from a physical Triumph Tiger 955i, then moving through CAD reconstruction, FEA, topology optimisation and MATLAB powertrain and performance modelling.",
+    description: [
+      "We started from the physical Triumph Tiger 955i, stripped the motorcycle and measured the frame, mounting points and main interfaces. The chassis was then rebuilt parametrically in SolidWorks as a digital twin that we could use for the rest of the analysis.",
+      "For the structural study, I worked with an ANSA hybrid shell-solid model of about 1.88 million elements and checked mesh sensitivity before solving four representative load cases in ANSYS: static, acceleration, braking and a 3g vertical impact. The central rocker was then topology-optimised with casting constraints, reducing its mass by 30% while keeping a fatigue safety factor of 5.43.",
+      "In parallel, we built MATLAB models for the powertrain and vehicle performance. A digitised Yamaha CP3 dyno curve was used to scan final-drive combinations, followed by an acceleration model including weight transfer, traction and wheelie limits. The same model was then used for parametric maps of CdA, road grade and grip conditions."
+    ],
+    cover: "assets/images/motorcycle-frame-cover.png?v=20260921-20",
+    images: [
+      "assets/images/motorcycle-frame-cover.png?v=20260921-20",
+      "assets/images/motorcycle-reverse-engineering.png?v=20260921-20",
+      "assets/images/motorcycle-ansa-hybrid-mesh.png?v=20260921-20",
+      "assets/images/motorcycle-topology-optimization.png?v=20260921-20",
+      "assets/images/motorcycle-parametric-mapping.png?v=20260921-20"
+    ],
+    specs: {
+      "Reference vehicle": "Triumph Tiger 955i",
+      "CAD": "SolidWorks digital twin from physical measurements",
+      "FE model": "ANSA hybrid shell-solid mesh · 1.88 M elements",
+      "Mesh sensitivity": "Δσ = 1.3% · Δu = 0.8%",
+      "Load cases": "1g static · 0.6g acceleration · 1g braking · 3g bump",
+      "Topology result": "Rocker mass −30% · fatigue SF 5.43",
+      "Final drive": "15 / 49 · i = 3.267",
+      "Vmax": "≈ 205–207 km/h",
+      "Acceleration": "0–100 km/h: 3.79 s · 0–200 km/h: 14.58 s",
+      "MATLAB mapping": "CdA · road grade · grip conditions"
+    },
+    tags: ["SolidWorks", "ANSA", "ANSYS", "FEA", "MATLAB"],
     pdf: null,
-    draft: true,
   },
   {
     id: "academic-adjoint-numerical-optimisation",

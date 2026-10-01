@@ -274,11 +274,11 @@ const PROJECTS = [
     ],
     cover: "assets/images/adjoint-shape-morph.gif?v=20260921-15",
     media: [
-      { type: "image", src: "assets/images/adjoint-cad-comparison.png?v=20260921-14" },
-      { type: "image", src: "assets/images/adjoint-morphing-regions.png?v=20260921-14" },
       { type: "image", src: "assets/images/adjoint-velocity.png?v=20260921-14" },
       { type: "image", src: "assets/images/adjoint-shape-morph.gif?v=20260921-14" },
       { type: "image", src: "assets/images/adjoint-optimization-cycles.png?v=20260921-14" }
+      { type: "image", src: "assets/images/adjoint-cad-comparison.png?v=20260921-14" },
+      { type: "image", src: "assets/images/adjoint-morphing-regions.png?v=20260921-14" },
     ],
     specs: {
       "Objective": "Maximise brake-duct outlet flow",

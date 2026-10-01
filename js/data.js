@@ -85,7 +85,7 @@ const PROJECTS = [
     summary:
       "Production half-car CFD workflow for straight-line aero development, with ANSA meshing, local refinement, boundary-layer resolution and mesh-quality control.",
     description: [
-      "For the 2026–27 season I am responsible for the CFD workflow used for PROM Racing’s aerodynamic development. The straight-line baseline uses a half-car computational domain with symmetry, moving ground and rotating wheels.",
+      "For the 2026–27 season I was responsible for the CFD workflow used for PROM Racing’s aerodynamic development. The straight-line baseline uses a half-car computational domain with symmetry, moving ground and rotating wheels.",
       "The production mesh is built in ANSA as a hexa-dominant hybrid mesh. Surface curvature, local size fields and refinement boxes are used around the car and wake, while boundary-layer cells resolve the near-wall gradients.",
       "Before production runs I check mesh quality and near-wall resolution, including the y+ field. The baseline production setup uses an approximately 82 million-cell mesh with low-Re near-wall treatment."
     ],

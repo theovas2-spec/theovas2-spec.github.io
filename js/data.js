@@ -202,6 +202,7 @@ const PROJECTS = [
     cover: "assets/images/amr-resolved-flow.jpg?v=20260921-3",
     images: [
       "assets/images/amr-mesh-evolution.jpg?v=20260921-3",
+      "assets/images/amr.png?v=20261001-3",
       "assets/images/amr-convergence.jpg?v=20260921-3",
       "assets/images/amr-resolved-flow.jpg?v=20260921-3",
       "assets/images/amr-half-mesh-comparison.jpg?v=20260921-3"

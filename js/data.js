@@ -124,6 +124,7 @@ const PROJECTS = [
     cover: "assets/images/wt-reference.jpg?v=20260920-4",
     images: [
       "assets/images/wt-reference.jpg?v=20260920-4",
+       "assets/images/rankingwt.png?v=20260920-4"
       "assets/images/wt-rans-correlation.jpg?v=20260920-4",
       "assets/images/wt-des-force-history.jpg?v=20260920-4",
       "assets/images/wt-des-results.jpg?v=20260920-4",

@@ -122,14 +122,14 @@ const PROJECTS = [
       "After checking the numerical setup — including mesh strategy, wall treatment, schemes and solver settings — selected cases were moved to DES. The mean |CL| error dropped from 4.27% to 2.60%, the CL RMSE from 0.062 to 0.033, and all 11 DES cases fell within ±5% of the wind-tunnel lift. Flow-visualisation paint was also compared against CFD wall-shear-stress topology to check the physics behind the force agreement."
     ],
     cover: "assets/images/wt-reference.jpg?v=20260920-4",
-    images: [
-      "assets/images/wt-reference.jpg?v=20260920-4",
-       "assets/images/rankingwt.png?v=20260920-4"
-      "assets/images/wt-rans-correlation.jpg?v=20260920-4",
-      "assets/images/wt-des-force-history.jpg?v=20260920-4",
-      "assets/images/wt-des-results.jpg?v=20260920-4",
-      "assets/images/wt-flow-topology.jpg?v=20260920-4"
-    ],
+   images: [
+     "assets/images/wt-reference.jpg?v=20260920-4",
+     "assets/images/rankingwt.png?v=20260920-4",
+     "assets/images/wt-rans-correlation.jpg?v=20260920-4",
+     "assets/images/wt-des-force-history.jpg?v=20260920-4",
+     "assets/images/wt-des-results.jpg?v=20260920-4",
+     "assets/images/wt-flow-topology.jpg?v=20260920-4"
+   ],
     specs: {
       "Experimental reference": "P20 rear-wing wind-tunnel campaign",
       "Test variations": "AoA · Gurney flaps · vortex generators",

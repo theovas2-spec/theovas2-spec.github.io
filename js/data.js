@@ -16,14 +16,17 @@ const PROFILE = {
   github: "https://github.com/theovas2-spec",
   linkedin: "https://www.linkedin.com/in/theodoros-vasileiou-70a316299/",
   resumePdf: "assets/documents/CV.pdf",
-  tagline:
-    "5th-year Mechanical Engineering student at NTUA working on CFD methodology and aerodynamics.",
-  about: [
-    "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation, with a strong interest in motorsport aerodynamics and CFD methodology.",
-    "I enjoy working through the full CFD methodology, from geometry and meshing to solver setup, validation, post-processing and understanding where the method needs to improve.",
-    "I’m naturally curious, practical and quite persistent with technical problems. I like working close to the full CFD process rather than treating the solver as a black box, and I’m especially interested in turbulence modelling, unsteady aerodynamics, optimisation and automated workflows."
-  ],
-  focus: ["CFD", "Aerodynamics", "Simulation", "Motorsport"],
+tagline:
+  "5th-year Mechanical Engineering student at NTUA focused on automotive aerodynamics, CFD and optimisation.",
+
+about: [
+  "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation, with a strong interest in automotive and motorsport engineering.",
+
+  "Through Formula Student and academic projects, I work across the CFD process, from geometry and meshing to simulation, validation and interpreting results to support design decisions.",
+
+  "I enjoy solving challenging engineering problems and understanding the physics behind a simulation. I’m particularly interested in aerodynamics, optimisation and developing reliable, automated workflows that help engineers evaluate and improve designs."
+],
+  focus: ["CFD", "Aerodynamics", "Simulation", "Automotive", "Motorsport"],
 };
 
 /* ------------------------------------------------------------------ SKILLS */

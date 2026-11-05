@@ -303,33 +303,52 @@ const PROJECTS = [
     "role": "Turbulence Modelling · NTUA PCOpt",
     "summary": "Used continuous-adjoint field inversion to improve a RANS flow prediction against DES data, reducing the velocity-error objective by 43.27%.",
     "description": [
-      "I applied field inversion to the DrivAer Fastback, adjusting eddy viscosity with the continuous adjoint method to bring the RANS flow closer to a time-averaged DES reference.",
-      "The velocity-error objective decreased by 43.27% over 38 optimisation cycles. The adapted flow showed better agreement around the roof and in the wake, although some local differences remained."
+      "I applied field inversion to the DrivAer Fastback to improve a RANS flow prediction using time-averaged DES data as the reference.",
+      "Using OpenFOAM and the continuous adjoint method, I adjusted the eddy-viscosity field through repeated flow and adjoint solves. The study included a mesh comparison, flow-field analysis and evaluation of the adapted solution.",
+      "The velocity-error objective decreased by 43.27% over 38 optimisation cycles. The results showed better agreement around the roof and in the wake, including improvements in flow direction. Some local differences remained."
     ],
-    "cover": "assets/images/drivaerimage.jpg?v=20261105-simple",
+    "cover": "assets/images/eva/wake-error.webp",
     "media": [
       {
         "type": "image",
         "src": "assets/images/eva/velocity.webp",
-        "alt": "Velocity magnitude: initial RANS, adapted EVA and DES reference.",
+        "alt": "Velocity magnitude on the centre plane for initial RANS, adapted EVA and DES.",
         "caption": "Flow comparison: RANS → EVA → DES."
       },
       {
         "type": "image",
         "src": "assets/images/eva/objective.webp",
-        "alt": "Velocity-error objective decreases over 38 optimisation cycles.",
+        "alt": "Velocity-error objective and percentage reduction over 38 optimisation cycles.",
         "caption": "43.27% lower objective after 38 cycles."
       },
       {
         "type": "image",
         "src": "assets/images/eva/velocity-error.webp",
-        "alt": "Velocity error before and after adaptation; blue shows improvement and red shows an increase.",
-        "caption": "Where the flow improves: blue. Where error increases: red."
+        "alt": "Centre-plane velocity error: initial RANS, final EVA and difference. Blue indicates improvement; red indicates an increase.",
+        "caption": "Velocity error before and after adaptation."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/wake-direction.webp",
+        "alt": "Wake velocity directions for RANS, EVA and DES; colour indicates vertical velocity.",
+        "caption": "How the predicted wake direction changes."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/local-direction.webp",
+        "alt": "Velocity vectors in one selected near-wake cell, projected onto three planes.",
+        "caption": "A closer look at the change in flow direction."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/wake-error.webp",
+        "alt": "Initial and final velocity error at x = 4.5 m, and their difference.",
+        "caption": "Error reduction across the wake."
       },
       {
         "type": "image",
         "src": "assets/images/eva/eddy-viscosity.webp",
-        "alt": "Eddy viscosity before and after field inversion, with the difference.",
+        "alt": "Initial eddy viscosity, adapted field and difference in a transverse wake section.",
         "caption": "Eddy viscosity before and after adaptation."
       }
     ],

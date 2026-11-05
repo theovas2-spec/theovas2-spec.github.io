@@ -1257,3 +1257,15 @@ body.modal-open {
 .eva-caption { padding: .85rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; line-height: 1.6; }
 .eva-caption a { display: block; margin-top: .35rem; }
 @media (max-width: 600px) { .eva-results { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eva-results > div { padding: .75rem; } }
+
+/* Keep the complete EVA comparison visible, with its badge below the plots. */
+.project-cover[data-open="drivaer-des-field-inversion"] {
+  background: #fff;
+  padding: .75rem .75rem 3.25rem;
+}
+.project-cover[data-open="drivaer-des-field-inversion"] img {
+  object-fit: contain;
+}
+.project-card:hover .project-cover[data-open="drivaer-des-field-inversion"] img {
+  transform: none;
+}

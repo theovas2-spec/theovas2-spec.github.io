@@ -240,7 +240,7 @@
         Your browser does not support embedded video.
       </video>`;
     }
-    return `<img id="gallery-media" class="gallery-media" src="${safeHref(item.src)}" alt="${escapeHtml(title)}">`;
+    return `<img id="gallery-media" class="gallery-media" src="${safeHref(item.src)}" alt="${escapeHtml(item.alt || title)}">${item.caption ? `<figcaption class="eva-caption">${escapeHtml(item.caption)} <a href="${safeHref(item.src)}" target="_blank" rel="noopener">Open full-size figure ↗</a></figcaption>` : ""}`;
   }
 
   function renderMediaThumb(item, i) {
@@ -269,6 +269,8 @@
         <h2 id="modal-title">${escapeHtml(proj.title)}</h2>
         <p class="modal-role">${escapeHtml(proj.role || "")}</p>
       </div>
+
+      ${proj.metrics ? `<div class="eva-results" aria-label="Final EVA results">${proj.metrics.map((m) => `<div><strong>${escapeHtml(m.value)}</strong><span>${escapeHtml(m.label)}</span></div>`).join("")}</div><p class="eva-result-note">${escapeHtml(proj.metricNote)}</p>` : ""}
 
       <div class="modal-gallery">
         <figure class="gallery-frame" id="gallery-frame">
@@ -333,7 +335,7 @@
 
     frame.innerHTML = renderMediaItem(currentMedia[currentIndex], projTitle);
     $("#gallery-count").textContent = `${currentIndex + 1} / ${currentMedia.length}`;
-    $("#gallery-thumbs .thumb").forEach((t, i) =>
+    $$("#gallery-thumbs .thumb").forEach((t, i) =>
       t.classList.toggle("is-active", i === currentIndex)
     );
   }

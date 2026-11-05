@@ -295,39 +295,106 @@ const PROJECTS = [
   },
 
   {
-    id: "drivaer-des-field-inversion",
-    group: "research-academic",
-    title: "DES-Informed Field Inversion for Automotive Aerodynamics — DrivAer Fastback",
-    category: "NTUA PCOpt · Turbulence Modelling",
-    year: "2026",
-    role: "CFD Validation & Turbulence Modelling · NTUA PCOpt",
-    summary:
-      "Full-scale DrivAer Fastback validation using RANS/SA and DES/SA, followed by an ongoing DES-informed Eddy Viscosity Adaptation / Field Inversion study in OpenFOAM.",
-    description: [
-      "I am working on a full-scale DrivAer Fastback at 16 m/s with moving ground, rotating wheels and detailed wheel-contact modelling. The first stage focused on validating the CFD setup and understanding where steady RANS/SA differs from the unsteady DES solution.",
-      "The experimental drag reference is CD ≈ 0.243. The baseline RANS/SA case predicted about 0.213, while the improved DES setup reduced the mean value to about 0.242. Component analysis shows the main remaining discrepancy around the tires, with strong coupling between wheel wakes and the underbody flow.",
-      "The next stage is ongoing: the time-averaged DES velocity field will be used as the high-fidelity target for an adjoint-based Eddy Viscosity Adaptation / Field Inversion workflow. The aim is to identify where the SA closure gives the wrong turbulent momentum transport in the wheel wakes, underbody and separated rear wake, rather than only matching the total drag."
+    "id": "drivaer-des-field-inversion",
+    "group": "research-academic",
+    "title": "Continuous-Adjoint Eddy Viscosity Adaptation — DrivAer Fastback",
+    "category": "NTUA PCOpt · Turbulence Modelling",
+    "year": "2026",
+    "role": "CFD & Continuous-Adjoint Optimisation · NTUA PCOpt",
+    "summary": "DES-informed eddy-viscosity adaptation reduced the velocity-mismatch objective by 43.27% over 38 optimisation cycles, with stronger improvements in the wake and roof windows.",
+    "metrics": [
+      {
+        "value": "43.27%",
+        "label": "Objective reduction"
+      },
+      {
+        "value": "62.35%",
+        "label": "Wake-window reduction"
+      },
+      {
+        "value": "56.82%",
+        "label": "Roof-window reduction"
+      },
+      {
+        "value": "38",
+        "label": "Optimisation cycles"
+      }
     ],
-    cover: "assets/images/drivaerimage.jpg?v=20260921-18",
-    images: [
-      "assets/images/drivaerimage.jpg?v=20260921-18",
-      "assets/images/drivaer-full-mesh.png?v=20260921-17",
-      "assets/images/drivaer-wheel-contact-mesh.png?v=20260921-17",
-      "assets/images/drivaer-component-drag.png?v=20260921-17"
+    "metricNote": "Reductions in integrated squared velocity error relative to the first displayed cycle; DES mean velocity is the reference.",
+    "description": [
+      "Can a steady RANS velocity field be brought closer to a time-averaged DES reference by adapting eddy viscosity? This study applies the continuous adjoint method to the DrivAer Fastback, using a primal–adjoint loop to identify spatial corrections to turbulent momentum transport.",
+      "An initial 5, 7 and 11 million-cell mesh study informed the choice of the 5 million-cell configuration. The EVA case then used a simplified body: mirrors and wheels removed, wheelhouses closed and stationary ground, with an inlet velocity of 16 m/s. RANS supplied the initial field and time-averaged DES supplied the velocity target.",
+      "Each optimisation cycle combines a primal solve, an adjoint solve, sensitivity evaluation and a bounded eddy-viscosity update with an Armijo line search. Over 38 cycles, the displayed objective fell from 11.5001 to 6.5236 (43.27%). Integrated squared velocity error fell by 62.35% in the wake window and 56.82% in the roof window, relative to the first displayed cycle.",
+      "At one selected lower near-wake cell, the angle to the DES velocity vector decreased from 27.10° to 4.86°, and vector error fell by 77.56%. This is a local illustration, not a domain-wide direction metric: the speed itself became slightly less accurate while the direction improved.",
+      "Agreement remains partial. Near (4.5, 0, 0.5) m, EVA reduces upward velocity from 0.834 to 0.634 m/s but does not recover the DES downward velocity of −1.641 m/s. Error also increases locally near the rear body and parts of the underbody. Eddy viscosity both increases and decreases across the wake; a local viscosity change does not guarantee a local error reduction.",
+      "The final drag coefficient is 0.1305, compared with 0.1316 for the initial RANS case and 0.1287 for DES (experimental reference: 0.124 for the simplified configuration). Drag was not part of the objective. The result demonstrates improved agreement with this DES mean field, without establishing full DES equivalence or generalisation to other geometries."
     ],
-    specs: {
-      "Geometry": "Full-scale DrivAer Fastback",
-      "Freestream": "16 m/s",
-      "Ground / wheels": "Moving ground · rotating wheels · contact patch",
-      "Experimental CD": "≈ 0.243",
-      "RANS / SA CD": "≈ 0.213",
-      "DES / SA mean CD": "≈ 0.242",
-      "Diagnosis": "Wheel wakes · underbody · rear wake",
-      "FI target": "Time-averaged DES velocity field",
-      "Status": "RANS/DES validation largely complete · EVA/FI ongoing"
+    "cover": "assets/images/eva/wake-error.webp",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/images/eva/velocity-error.webp",
+        "alt": "Figure 7 · Centre-plane velocity error before and after EVA. Blue in the difference map indicates improvement; red indicates deterioration.",
+        "caption": "Figure 7 · Centre-plane velocity error before and after EVA. Blue in the difference map indicates improvement; red indicates deterioration."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/objective.webp",
+        "alt": "Figure 2 · Objective history: 11.5001 to 6.5236 over 38 cycles, a 43.27% reduction relative to the first displayed state.",
+        "caption": "Figure 2 · Objective history: 11.5001 to 6.5236 over 38 cycles, a 43.27% reduction relative to the first displayed state."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/velocity.webp",
+        "alt": "Figure 3 · Centre-plane velocity magnitude: initial RANS, final EVA and DES reference.",
+        "caption": "Figure 3 · Centre-plane velocity magnitude: initial RANS, final EVA and DES reference."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/wake-direction.webp",
+        "alt": "Figure 4 · Wake direction: equal-length arrows show projected direction; colour shows vertical velocity. EVA does not fully reproduce DES downwash.",
+        "caption": "Figure 4 · Wake direction: equal-length arrows show projected direction; colour shows vertical velocity. EVA does not fully reproduce DES downwash."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/local-direction.webp",
+        "alt": "Figure 6 · Selected-cell velocity vectors in three projections. The full 3D angle to DES improves from 27.10° to 4.86°.",
+        "caption": "Figure 6 · Selected-cell velocity vectors in three projections. The full 3D angle to DES improves from 27.10° to 4.86°."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/wake-error.webp",
+        "alt": "Figure 8 · Wake-section velocity error at x = 4.5 m. The correction is spatially non-uniform, with both improvements and local increases.",
+        "caption": "Figure 8 · Wake-section velocity error at x = 4.5 m. The correction is spatially non-uniform, with both improvements and local increases."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/eva/eddy-viscosity.webp",
+        "alt": "Figure 9 · Wake-section eddy viscosity before and after EVA and its difference. Logarithmic colour scales reveal the spatially varying correction.",
+        "caption": "Figure 9 · Wake-section eddy viscosity before and after EVA and its difference. Logarithmic colour scales reveal the spatially varying correction."
+      }
+    ],
+    "specs": {
+      "Geometry": "Simplified DrivAer Fastback · closed wheelhouses · no wheels or mirrors",
+      "Mesh / inlet": "5 million cells · 16 m/s",
+      "Ground": "Stationary",
+      "Method": "Continuous-adjoint EVA · bounded update · Armijo line search",
+      "Reference": "Time-averaged DES velocity field",
+      "Displayed objective": "11.5001 → 6.5236 · 38 cycles",
+      "Wake window (m)": "4 ≤ x < 12 · |y| < 2 · z < 2.5",
+      "Roof window (m)": "0 < x < 3 · |y| < 1 · 0.8 < z < 1.7",
+      "Selected cell (m)": "(4.0009, 0.0831, 0.1787)",
+      "Local angle to DES": "27.10° → 4.86° · selected cell only",
+      "Final drag coefficient": "0.1305 · drag excluded from objective",
+      "Source": "Final report · October 2026 · §§3–4"
     },
-    tags: ["DrivAer", "DES", "Field Inversion", "EVA", "OpenFOAM"],
-    pdf: null,
+    "tags": [
+      "Continuous Adjoint",
+      "EVA",
+      "RANS / DES",
+      "OpenFOAM"
+    ],
+    "pdf": "assets/documents/eva-continuous-adjoint-report.pdf"
   },
   {
     id: "academic-pump-design",

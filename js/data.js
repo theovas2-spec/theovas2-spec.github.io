@@ -33,7 +33,11 @@ about: [
 const SKILLS = [
   {
     category: "CFD & Simulation",
-    items: ["OpenFOAM", "ANSYS Fluent", "RANS", "DES", "MRF", "AMR", "Adjoint Optimisation"],
+    items: ["OpenFOAM", "ANSYS Fluent", "RANS", "DES", "MRF", "AMR"],
+  },
+  {
+    category: "Validation & Optimisation",
+    items: ["CFD Validation", "Wind-Tunnel Correlation", "Mesh Independence", "Shape Optimisation", "Continuous Adjoint", "Field Inversion"],
   },
   {
     category: "Meshing, Post-Processing & Data",

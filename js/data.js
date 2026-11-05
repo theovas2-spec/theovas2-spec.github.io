@@ -7,7 +7,7 @@ const PROFILE = {
   name: "Theodoros Vasileiou",
   initials: "TV",
   photo: "assets/images/profile.png?v=20260920-4",
-  title: "CFD Methodology, Aerodynamics & Simulation Engineer",
+  title: "CFD, Fluid Dynamics & Simulation Engineer",
   affiliation: "National Technical University of Athens",
   affiliationShort: "NTUA",
   location: "Athens, Greece",
@@ -17,16 +17,16 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/theodoros-vasileiou-70a316299/",
   resumePdf: "assets/documents/CV.pdf",
 tagline:
-  "5th-year Mechanical Engineering student at NTUA focused on automotive aerodynamics, CFD and optimisation.",
+  "5th-year Mechanical Engineering student at NTUA focused on CFD, fluid dynamics and optimisation.",
 
 about: [
-  "I’m a 5th-year Mechanical Engineering student at NTUA, specialising in Air & Ground Transportation, with a strong interest in automotive and motorsport engineering.",
+  "I’m a 5th-year Mechanical Engineering student at NTUA interested in CFD applications across aerospace, automotive, marine and energy engineering.",
 
   "Through Formula Student and academic projects, I work across the CFD process, from geometry and meshing to simulation, validation and interpreting results to support design decisions.",
 
-  "I enjoy solving challenging engineering problems and understanding the physics behind a simulation. I’m particularly interested in aerodynamics, optimisation and developing reliable, automated workflows that help engineers evaluate and improve designs."
+  "I enjoy understanding the physics behind a simulation and using it to improve engineering designs. My interests include fluid dynamics, optimisation and reliable, automated simulation workflows."
 ],
-  focus: ["CFD", "Aerodynamics", "Simulation", "Automotive", "Motorsport"],
+  focus: ["CFD", "Fluid Dynamics", "Simulation", "Optimisation"],
 };
 
 /* ------------------------------------------------------------------ SKILLS */
